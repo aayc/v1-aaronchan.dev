@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import logo from './logo.svg';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Link from '@material-ui/core/Link';
+import DraftsIcon from '@material-ui/icons/Send';
 import Snippet from './HomeFeatureSnippet.jsx'
 import Avatar from '@material-ui/core/Avatar';
 import './App.css';
@@ -34,35 +40,37 @@ class App extends Component {
 
     return (
       <div className="App">
-        
-        <div className={classes.heroUnit}>
-          <div className={classes.heroContent}>
-            <center><Avatar alt="Aaron Chan" src="me.jpg" style={{width: 120, height: 120, marginTop: 20}}/></center>
-            <br /><br />
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Hi, I'm Aaron
-            </Typography>
-            <Typography style={{fontSize: 24}}>
-              musician, programmer, former baby
-            </Typography>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={16} justify="center">
-                {/*<Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
-                  </Button>
-                </Grid>*/}
-              </Grid>
+        <Grid container spacing={8} style={{ marginTop: "50px", marginLeft: "30px" }}>
+          <Grid item xs={4} sm={2}>
+            <center>
+              <Avatar alt="Aaron Chan" src="me.jpg" style={{width: 120, height: 120, marginTop: 20}}/>
+              <br />
+              <div>
+              <Typography component="h1" variant="h4">Aaron Chan</Typography>
+              <Typography component="h1" variant="overline" 
+                style={{ marginTop: "5px", lineHeight: "16px" }}>
+                urbanite friend coder pianist chef engineer cellist clown
+              </Typography>
+              </div>
+              <br /><br /><br />
+            </center>
+            <div align="center" style={{ marginRight: "20px"}}>
+              <Link href={"https://google.com"} variant="h5">Projects</Link>
+              <br />
+              <br />
+              <Link href={"https://google.com"} variant="h5" gutterBottom>Contest Coding</Link>
+              <br />
+              <br />
+              <Link href={"https://google.com"} variant="h5">Music</Link>
+              <br />
+              <br />
+              <Link variant="h5">Contact</Link>
             </div>
-          </div>
-          <Snippet />
-          
-        </div>
+          </Grid>
+          <Grid item xs={8} sm={6}>
+          </Grid>
+        </Grid>
+        
       </div>
     );
   }
