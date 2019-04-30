@@ -5,10 +5,13 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Link from '@material-ui/core/Link';
+import Landing from './Landing.jsx';
+import Textlink from '@material-ui/core/Link';
 import DraftsIcon from '@material-ui/icons/Send';
-import Snippet from './HomeFeatureSnippet.jsx'
 import Avatar from '@material-ui/core/Avatar';
+import { Switch, Route, Link, BrowserRouter }  from 'react-router-dom';
+import Projects from './Projects.jsx'
+import Contact from './Contact.jsx'
 import './App.css';
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
@@ -39,42 +42,53 @@ class App extends Component {
     const { classes } = this.props;
 
     return (
-      <div className="App">
-        <Grid container spacing={8} style={{ marginTop: "50px", marginLeft: "30px" }}>
-          <Grid item xs={4} sm={2}>
-            <center>
-              <Avatar alt="Aaron Chan" src="me.jpg" style={{width: 120, height: 120, marginTop: 20}}/>
-              <br />
-              <div>
-              <Typography component="h1" variant="h4">Aaron Chan</Typography>
-              <Typography component="h1" variant="overline" 
-                style={{ marginTop: "5px", lineHeight: "16px" }}>
-                urbanite friend coder pianist chef engineer cellist clown
-              </Typography>
-              </div>
-              <br /><br /><br />
-            </center>
-            <div align="center" style={{ marginRight: "20px"}}>
-              <Link href={"https://google.com"} variant="h5">Projects</Link>
-              <br />
-              <br />
-              <Link href={"https://google.com"} variant="h5" gutterBottom>Contest Coding</Link>
-              <br />
-              <br />
-              <Link href={"https://google.com"} variant="h5">Music</Link>
-              <br />
-              <br />
-              <Link variant="h5">Contact</Link>
-            </div>
-          </Grid>
-          <Grid item xs={8} sm={6}>
-          </Grid>
-        </Grid>
-        
-      </div>
+      <BrowserRouter>
+        <Switch>
+          {/* Make Math495 page use its own navbar */}
+          <Route exact path="/math495" component={Projects} />
+          <Route component={DefaultContainer} />
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
+
+const DefaultContainer = () => (
+  <div className="App">
+    <Grid container spacing={8} style={{ marginTop: "50px", marginLeft: "30px" }}>
+      <Grid item xs={4} sm={2}>
+        <center>
+          <Avatar alt="Aaron Chan" src="me-close.jpg" style={{width: 140, height: 140, marginTop: 20}}/>
+          <br />
+          <div>
+          <Typography component="h1" variant="h4">Aaron Chan</Typography>
+          <Typography component="h1" variant="overline" 
+            style={{ marginTop: "5px", lineHeight: "16px" }}>
+            urbanite friend coder pianist chef engineer cellist clown
+          </Typography>
+          </div>
+          <br /><br /><br />
+        </center>
+        <div align="center" style={{ marginRight: "20px"}}>
+          <Textlink href={"/"} variant="h5">home</Textlink>
+          <br /><br />
+          <Textlink href={"/projects"} variant="h5">projects</Textlink>
+          <br /><br />
+          <Textlink href={"/math495"} variant="h5" gutterBottom>contest coding</Textlink>
+          <br /> <br />
+          <Textlink href={"/"} variant="h5">music</Textlink>
+          <br /> <br />
+          <Textlink href={"/contact"} variant="h5">contact</Textlink>
+        </div>
+      </Grid>
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/projects" component={Projects} />
+        <Route exact path="/contact" component={Contact} />
+      </Switch>
+    </Grid>
+  </div>
+)
 
 App.propTypes = {
   classes: PropTypes.object.isRequired,
