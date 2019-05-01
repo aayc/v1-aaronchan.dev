@@ -10,14 +10,15 @@ import Textlink from '@material-ui/core/Link';
 import DraftsIcon from '@material-ui/icons/Send';
 import Avatar from '@material-ui/core/Avatar';
 import { Switch, Route, Link, BrowserRouter }  from 'react-router-dom';
-import Projects from './Projects.jsx'
-import Contact from './Contact.jsx'
-import './App.css';
+import Math495Home from './math495/Math495Home.jsx';
+import Projects from './Projects.jsx';
+import Contact from './Contact.jsx';
 import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import './App.css';
 
 const styles = theme => ({
    heroUnit: {
@@ -34,18 +35,12 @@ const styles = theme => ({
 })
 
 class App extends Component {
-  constructor (props) {
-    super(props)
-  }
-
   render() {
-    const { classes } = this.props;
-
     return (
       <BrowserRouter>
         <Switch>
           {/* Make Math495 page use its own navbar */}
-          <Route exact path="/math495" component={Projects} />
+          <Route exact path="/math495" component={Math495Home} />
           <Route component={DefaultContainer} />
         </Switch>
       </BrowserRouter>
@@ -66,8 +61,13 @@ const DefaultContainer = () => (
             style={{ marginTop: "5px", lineHeight: "16px" }}>
             urbanite friend coder pianist chef engineer cellist clown
           </Typography>
+          <Typography component="h1" variant="overline" 
+            style={{ marginTop: "5px", lineHeight: "16px" }}>
+            life-long student
+          </Typography>
+          
           </div>
-          <br /><br /><br />
+          <br />
         </center>
         <div align="center" style={{ marginRight: "20px"}}>
           <Textlink href={"/"} variant="h5">home</Textlink>
@@ -75,8 +75,6 @@ const DefaultContainer = () => (
           <Textlink href={"/projects"} variant="h5">projects</Textlink>
           <br /><br />
           <Textlink href={"/math495"} variant="h5" gutterBottom>contest coding</Textlink>
-          <br /> <br />
-          <Textlink href={"/"} variant="h5">music</Textlink>
           <br /> <br />
           <Textlink href={"/contact"} variant="h5">contact</Textlink>
         </div>
