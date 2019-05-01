@@ -38,21 +38,34 @@ class Projects extends Component {
         </center>
         <ProjectTeaser
           left_child={<img src="wordmath-recording.gif" alt="Word Math Screenshot" style = { styles.showcasePicture } />}
-          right_child={<h2>math with word embeddings</h2>}
+          right_child={
+            <div style={styles.showcaseText}>
+              <h2>word embedding math</h2>
+              <p>adding and subtracting word embeddings leads to some interesting insights on how concepts are related.</p>
+              <p><Textlink variant="p">try it out</Textlink></p>
+            </div>
+          }
         />
         <ProjectTeaser
           left_child={<img src="politweet-screenshot.png" alt="Politweet Screenshot" style = { styles.showcasePicture } />}
           right_child={
-            <div style={{width: "70%"}}>
+            <div style={styles.showcaseText}>
             <h2>politweet</h2>
             <p>a 79% accuracy attempt to classify tweets by political ideology.</p>
-            <p>see our unofficial <Textlink variant="p">report</Textlink> and <Textlink variant="p">repository</Textlink></p>
+            <p>
+              see our unofficial <Textlink variant="p" href={"https://github.com/aayc/politweet/blob/master/Politweet.pdf"} target="_blank">report</Textlink> and <Textlink variant="p" href={"https://github.com/aayc/politweet"} target="_blank">repository</Textlink></p>
             </div>
           }
         />
         <ProjectTeaser
           left_child={<img src="byuapi-screenshot.png" alt="BYU API Screenshot" style = { styles.showcasePicture } />}
-          right_child={<h2>BYU Coursemap API</h2>}
+          right_child={
+            <div style={styles.showcaseText}>
+              <h2>BYU coursemap API</h2>
+              <p>want to programmatically retrieve all the classes happening 2-5pm?  now you can.</p>
+              <p><Textlink variant="p" href={"https://github.com/aayc/byu-coursemajor-api"} target="_blank">read it over</Textlink></p>
+            </div>
+          }
         />
         <ProjectTeaser
           left_child={<img src="qlearning-recording.gif" alt="QLearn Screenshot" style = { styles.showcasePicture } />}
@@ -68,9 +81,9 @@ class Projects extends Component {
           left_child={<img src="tanks-recording.gif" alt="Tanks Game GIF Screenshot" style = { styles.showcasePicture } />}
           right_child={
             <div style={styles.showcaseText}>
-              <h2>Tanks!</h2>
+              <h2>tanks!</h2>
               <p>a browser take on a classic formulaic tanks game.  WASD to move, click to shoot.  supports 1-2 players across the 20 level campaign.</p>
-              <p><Textlink variant="p" href={"https://enigmatic-reef-9847.herokuapp.com"}>play now</Textlink></p>
+              <p><Textlink variant="p" target="_blank" href={"https://enigmatic-reef-9847.herokuapp.com"}>play now</Textlink></p>
             </div>
           }
         />
@@ -80,7 +93,7 @@ class Projects extends Component {
             <div style={styles.showcaseText}>
               <h2>corridors: socket.io library</h2>
               <p>a lightweight virtual room management library for nodejs socket.io, built for multiplayer games.</p> 
-              <p><Textlink variant="p" href={"https://www.npmjs.com/package/corridors"}>see it on npm</Textlink></p>
+              <p><Textlink variant="p" target="_blank" href={"https://www.npmjs.com/package/corridors"}>see it on npm</Textlink></p>
             </div>
           }
         />
