@@ -14,9 +14,7 @@ import GetResume from '@material-ui/icons/GetApp';
   class Contact extends Component {
     render () {
       return (
-        <Grid item xs={12} sm={9} spacing={0} justify="center" align="center" style={{margin: 0, height: "100%"}}>
-          <br /><br />
-          <br /><br />
+        <div>
           <br /><br />
           <br /><br />
           <br /><br />
@@ -24,7 +22,7 @@ import GetResume from '@material-ui/icons/GetApp';
           <table>
             <tr>
               <td style={{paddingRight: "30px" }}> <GetResume style = {{ width: 50, height: 50 }}/></td>
-              <td><Textlink href={"#"} variant="h3">download my resume</Textlink></td>
+              <td><Textlink href={"https://drive.google.com/uc?export=download&id=1ZwIDmLNkNWzzU1KEfYCJEzu1dWXQLoea"} target="_blank" variant="h3">download my resume</Textlink></td>
             </tr>
             <br />
             <tr>
@@ -48,7 +46,7 @@ import GetResume from '@material-ui/icons/GetApp';
             </tr> 
           </table>
           </center>
-        </Grid>
+        </div>
       )
   }
 }

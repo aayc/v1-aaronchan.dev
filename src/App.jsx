@@ -20,19 +20,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import './App.css';
 
-const styles = theme => ({
-   heroUnit: {
-    backgroundColor: theme.palette.background.paper,
-  },
-  heroContent: {
-    maxWidth: 600,
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
-  },
-  heroButtons: {
-    marginTop: theme.spacing.unit * 4,
-  },
-})
+const styles = theme => ({})
 
 class App extends Component {
   render() {
@@ -50,12 +38,11 @@ class App extends Component {
 
 const DefaultContainer = () => (
   <div className="App">
-    <Grid container spacing={8} style={{ marginTop: "50px", marginLeft: "30px" }}>
-      <Grid item xs={4} sm={2}>
+    <Grid container xs={24} sm={12} spacing={12} style={{ /*background: "#336633",*/ marginTop: "50px" }}>
+      <Grid item xs={3} sm={3} style={{paddingLeft: "30px"}}>
         <center>
           <Avatar alt="Aaron Chan" src="me-close.jpg" style={{width: 140, height: 140, marginTop: 20}}/>
           <br />
-          <div>
           <Typography component="h1" variant="h4">Aaron Chan</Typography>
           <Typography component="h1" variant="overline" 
             style={{ marginTop: "5px", lineHeight: "16px" }}>
@@ -65,8 +52,6 @@ const DefaultContainer = () => (
             style={{ marginTop: "5px", lineHeight: "16px" }}>
             life-long student
           </Typography>
-          
-          </div>
           <br />
         </center>
         <div align="center" style={{ marginRight: "20px"}}>
@@ -79,11 +64,13 @@ const DefaultContainer = () => (
           <Textlink href={"/contact"} variant="h5">contact</Textlink>
         </div>
       </Grid>
-      <Switch>
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/projects" component={Projects} />
-        <Route exact path="/contact" component={Contact} />
-      </Switch>
+      <Grid item style={{/*background: "#BBBBBB"*/}} xs={9} sm={9} alignItems="center" justify="center">
+        <Switch>
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/projects" component={Projects} />
+          <Route exact path="/contact" component={Contact} />
+        </Switch>
+      </Grid>
     </Grid>
   </div>
 )

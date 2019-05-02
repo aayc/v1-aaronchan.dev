@@ -31,7 +31,7 @@ class Projects extends Component {
   render() {
 
     return (
-      <Grid container xs={12} sm={10} justify="center">
+      <div>
         <center>
           <Typography variant="h2">side projects</Typography>
           <p><i>some fail, some succeed, all are fun</i></p>
@@ -97,7 +97,7 @@ class Projects extends Component {
             </div>
           }
         />
-      </Grid>
+      </div>
     );
   }
 }
