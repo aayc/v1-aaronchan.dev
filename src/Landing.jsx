@@ -4,10 +4,6 @@ import Typography from '@material-ui/core/Typography';
 
 
 class LandingPage extends Component {
-  constructor (props) {
-    super(props)
-  }
-
   render () {
     return (
       <Grid item xs={12} sm={10} container>

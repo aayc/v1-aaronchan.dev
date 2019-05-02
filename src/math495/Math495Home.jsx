@@ -1,16 +1,129 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Collapse from '@material-ui/core/Collapse';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import DraftsIcon from '@material-ui/icons/Drafts';
+import SendIcon from '@material-ui/icons/Send';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import List from '@material-ui/core/List';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Textlink from '@material-ui/core/Link';
 import { withStyles } from '@material-ui/core/styles';
+import { Switch, Route, Link, BrowserRouter }  from 'react-router-dom';
+import DatastructuresIcon from '@material-ui/icons/Dashboard';
+import ReadmeIcon from '@material-ui/icons/ChromeReaderMode';
+import BruteforceIcon from '@material-ui/icons/Apps';
+import GreedyIcon from '@material-ui/icons/AttachMoney';
+import ApproachIcon from '@material-ui/icons/Help';
 
+// Temporary
+import Projects from "../Projects.jsx";
 
-class App extends Component {
-  render () {
+const styles = theme => ({
+  root: {
+    width: '100%',
+    backgroundColor: theme.palette.background.paper,
+  },
+});
+
+const PAGES = [
+  { nested: false, link: "/math495/readme", icon: (<ReadmeIcon />), text: "Read Me" },
+  { nested: false, link: "/math495/approach", icon: (<ApproachIcon />), text: "Approaching a Problem" },
+  { nested: false, link: "/math495/datastructures", icon: (<DatastructuresIcon />), text: "Data Structures" },
+  { nested: true, icon: (<BruteforceIcon />), text: "Brute Force", children: [
+    { nested: false, link: "/math495/bruteforce", icon: (<SendIcon />), text: "Signs You need" },
+  ]},
+  { nested: false, link: "/math495/greedy", icon: (<GreedyIcon />), text: "Greedy" },
+];
+
+/*
+Graph
+Bit manipulation
+Dynamic Programming
+Combinatorics
+Specialized
+*/
+class Math495App extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      open: {}
+    };
+  }
+
+  renderListItem = (item, i, depth = 0) => {
+    if (item.nested) {
+      return [
+          <ListItem key={i} button style={{paddingLeft: (2 * depth ) + "em"}} onClick={() => this.handleClick(i)}>
+            <ListItemIcon>{item.icon}</ListItemIcon>
+            <ListItemText inset primary={item.text} />
+            {this.isExpanded(i) ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>,
+          <Collapse key={-(i + 1)} in={this.isExpanded(i)} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              { item.children.map((page, i) => this.renderListItem(page, i + 1, depth + 1)) }
+            </List>
+          </Collapse>
+      ]
+    }
+    else {
+      return (
+        <ListItem key={i} button component="a" href={item.link} style={{ paddingLeft: (2 * depth) + "em" }}>
+          <ListItemIcon>{item.icon}</ListItemIcon>
+          <ListItemText inset primary={item.text} />
+        </ListItem>
+      )
+    }
+  };
+
+  handleClick = (i) => {
+    let new_open = {...this.state.open}
+    new_open[i] = !this.isExpanded(i)
+    this.setState(state => ({ open: new_open }))
+  };
+
+  isExpanded = (i) => this.state.open.hasOwnProperty(i) ? this.state.open[i] : true
+
+  render() {
+    const { classes } = this.props;
+    const NAV_WIDTH = 3
+
     return (
-      <p>Hello</p>
+      <div className="App">
+        <Grid container spacing={16} style={{ /*background: "#336633",*/ marginTop: "50px" }} alignItems = "center" justify="center">
+          <Grid item xs={NAV_WIDTH} sm={NAV_WIDTH} style={{ background: "#FFFFFF", paddingLeft: "50px"}}>
+            <Typography component="h1" variant="h4">competitive coding</Typography>
+            <center>
+            <br />
+            <List
+                subheader={<ListSubheader component="div">Table of Contents</ListSubheader>}
+                className={classes.root}
+              >
+              { PAGES.map((page, i) => this.renderListItem(page, i, 0)) }
+            </List>
+            </center>
+          </Grid>
+          <Grid item style={{/*background: "#BBBBBB"*/}} xs={12 - NAV_WIDTH} sm={12 - NAV_WIDTH}>
+            <Switch>
+              <Route exact path="/math495/readme" component={Projects} />
+            </Switch>
+          </Grid>
+        </Grid>
+      </div>
     )
   }
 }
 
-export default App;
+Math495App.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Math495App);

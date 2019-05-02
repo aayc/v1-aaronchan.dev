@@ -1,21 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import logo from './logo.svg';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import Textlink from '@material-ui/core/Link';
-import DraftsIcon from '@material-ui/icons/Send';
-import Snippet from './HomeFeatureSnippet.jsx'
-import Avatar from '@material-ui/core/Avatar';
-import { Route, Link, BrowserRouter }  from 'react-router-dom';
-import './App.css';
-import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
   showcasePicture: {
@@ -42,7 +28,7 @@ class Projects extends Component {
             <div style={styles.showcaseText}>
               <h2>word embedding math</h2>
               <p>adding and subtracting word embeddings leads to some interesting insights on how concepts are related.</p>
-              <p><Textlink variant="p">try it out</Textlink></p>
+              <p><Textlink>try it out</Textlink></p>
             </div>
           }
         />
@@ -53,7 +39,7 @@ class Projects extends Component {
             <h2>politweet</h2>
             <p>a 79% accuracy attempt to classify tweets by political ideology.</p>
             <p>
-              see our unofficial <Textlink variant="p" href={"https://github.com/aayc/politweet/blob/master/Politweet.pdf"} target="_blank">report</Textlink> and <Textlink variant="p" href={"https://github.com/aayc/politweet"} target="_blank">repository</Textlink></p>
+              see our unofficial <Textlink href={"https://github.com/aayc/politweet/blob/master/Politweet.pdf"} target="_blank">report</Textlink> and <Textlink href={"https://github.com/aayc/politweet"} target="_blank">repository</Textlink></p>
             </div>
           }
         />
@@ -63,7 +49,7 @@ class Projects extends Component {
             <div style={styles.showcaseText}>
               <h2>BYU coursemap API</h2>
               <p>want to programmatically retrieve all the classes happening 2-5pm?  now you can.</p>
-              <p><Textlink variant="p" href={"https://github.com/aayc/byu-coursemajor-api"} target="_blank">read it over</Textlink></p>
+              <p><Textlink href={"https://github.com/aayc/byu-coursemajor-api"} target="_blank">read it over</Textlink></p>
             </div>
           }
         />
@@ -73,7 +59,7 @@ class Projects extends Component {
             <div style={styles.showcaseText}>
             <h2>fun with reinforcement learning</h2>
             <p>one page implementation of temporal difference reinforcement learning, applied to a little rat-in-a-cage simulation.</p>
-            <p><Textlink variant="p" href={"http://thatnerd2.github.io/projects/rat-reward-js/index.html"} target="_blank" >check it out</Textlink></p>
+            <p><Textlink href={"http://thatnerd2.github.io/projects/rat-reward-js/index.html"} target="_blank" >check it out</Textlink></p>
             </div>
           }
         />
@@ -83,7 +69,7 @@ class Projects extends Component {
             <div style={styles.showcaseText}>
               <h2>tanks!</h2>
               <p>a browser take on a classic formulaic tanks game.  WASD to move, click to shoot.  supports 1-2 players across the 20 level campaign.</p>
-              <p><Textlink variant="p" target="_blank" href={"https://enigmatic-reef-9847.herokuapp.com"}>play now</Textlink></p>
+              <p><Textlink target="_blank" href={"https://enigmatic-reef-9847.herokuapp.com"}>play now</Textlink></p>
             </div>
           }
         />
@@ -93,7 +79,7 @@ class Projects extends Component {
             <div style={styles.showcaseText}>
               <h2>corridors: socket.io library</h2>
               <p>a lightweight virtual room management library for nodejs socket.io, built for multiplayer games.</p> 
-              <p><Textlink variant="p" target="_blank" href={"https://www.npmjs.com/package/corridors"}>see it on npm</Textlink></p>
+              <p><Textlink target="_blank" href={"https://www.npmjs.com/package/corridors"}>see it on npm</Textlink></p>
             </div>
           }
         />
@@ -107,21 +93,18 @@ class ProjectTeaser extends Component {
     const { left_child, right_child } = this.props
 
     return (
-      <Grid container style={{marginTop: "80px"}} justify="center">
-      <Grid container direction="row" alignItems="center" justify="center" xs={6} sm={5}>
+      <Grid container style={{marginTop: "80px"}}>
+      <Grid item xs={6} sm={5}>
         {left_child} 
       </Grid>
-      <Grid container xs={6} sm={5} justify="center">
+      <Grid item xs={6} sm={6}> 
+        <center>
         {right_child}
+        </center>
       </Grid>
       </Grid>
     )
   }
 }
 
-Projects.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-
-export default Projects;//withStyles(styles)(Projects);
+export default Projects;

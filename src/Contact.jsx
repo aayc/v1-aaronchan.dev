@@ -1,11 +1,4 @@
 import React, { Component } from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
 import EmailIcon from '@material-ui/icons/Email';
 import CodeIcon from '@material-ui/icons/Code';
 import Textlink from '@material-ui/core/Link';
@@ -20,6 +13,7 @@ import GetResume from '@material-ui/icons/GetApp';
           <br /><br />
           <center>
           <table>
+            <tbody>
             <tr>
               <td style={{paddingRight: "30px" }}> <GetResume style = {{ width: 50, height: 50 }}/></td>
               <td><Textlink href={"https://drive.google.com/uc?export=download&id=1ZwIDmLNkNWzzU1KEfYCJEzu1dWXQLoea"} target="_blank" variant="h3">download my resume</Textlink></td>
@@ -44,6 +38,7 @@ import GetResume from '@material-ui/icons/GetApp';
               <td style={{paddingRight: "30px" }}> <img src="linkedin-icon.png" alt="linkedin icon" style = {{ width: 50, height: 50 }}/></td>
               <td><Textlink href={"https://www.linkedin.com/in/aaron-chan-09366a6a"} target="_blank" variant="h3">aaron@linkedin</Textlink></td>
             </tr> 
+            </tbody>
           </table>
           </center>
         </div>

@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import logo from './logo.svg';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import Landing from './Landing.jsx';
 import Textlink from '@material-ui/core/Link';
-import DraftsIcon from '@material-ui/icons/Send';
 import Avatar from '@material-ui/core/Avatar';
-import { Switch, Route, Link, BrowserRouter }  from 'react-router-dom';
+import { Switch, Route, BrowserRouter }  from 'react-router-dom';
 import Math495Home from './math495/Math495Home.jsx';
 import Projects from './Projects.jsx';
 import Contact from './Contact.jsx';
-import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import './App.css';
@@ -28,7 +20,7 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           {/* Make Math495 page use its own navbar */}
-          <Route exact path="/math495" component={Math495Home} />
+          <Route path="/math495" component={Math495Home} />
           <Route component={DefaultContainer} />
         </Switch>
       </BrowserRouter>
@@ -38,7 +30,7 @@ class App extends Component {
 
 const DefaultContainer = () => (
   <div className="App">
-    <Grid container xs={24} sm={12} spacing={12} style={{ /*background: "#336633",*/ marginTop: "50px" }}>
+    <Grid container spacing={16} style={{ /*background: "#336633",*/ marginTop: "50px" }}>
       <Grid item xs={3} sm={3} style={{paddingLeft: "30px"}}>
         <center>
           <Avatar alt="Aaron Chan" src="me-close.jpg" style={{width: 140, height: 140, marginTop: 20}}/>
@@ -64,7 +56,7 @@ const DefaultContainer = () => (
           <Textlink href={"/contact"} variant="h5">contact</Textlink>
         </div>
       </Grid>
-      <Grid item style={{/*background: "#BBBBBB"*/}} xs={9} sm={9} alignItems="center" justify="center">
+      <Grid item style={{/*background: "#BBBBBB"*/}} xs={9} sm={9}>
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/projects" component={Projects} />
