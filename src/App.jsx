@@ -31,7 +31,8 @@ class App extends Component {
 const DefaultContainer = () => (
   <div className="App">
     <Grid container spacing={16} style={{ /*background: "#336633",*/ marginTop: "50px" }}>
-      <Grid item xs={3} sm={3} style={{paddingLeft: "30px"}}>
+      <Grid item xs={3} sm={3} style={{ paddingLeft: "30px" }}></Grid>
+      <Grid item xs={3} sm={3} style={{ position: "fixed", paddingLeft: "30px"}}>
         <center>
           <Avatar alt="Aaron Chan" src="me-close.jpg" style={{width: 140, height: 140, marginTop: 20}}/>
           <br />

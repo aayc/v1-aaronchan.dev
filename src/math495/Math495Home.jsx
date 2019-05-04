@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Collapse from '@material-ui/core/Collapse';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
 import SendIcon from '@material-ui/icons/Send';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
@@ -14,17 +11,21 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Textlink from '@material-ui/core/Link';
 import { withStyles } from '@material-ui/core/styles';
-import { Switch, Route, Link, BrowserRouter }  from 'react-router-dom';
+import { Switch, Route }  from 'react-router-dom';
 import DatastructuresIcon from '@material-ui/icons/Dashboard';
 import ReadmeIcon from '@material-ui/icons/ChromeReaderMode';
 import BruteforceIcon from '@material-ui/icons/Apps';
 import GreedyIcon from '@material-ui/icons/AttachMoney';
-import ApproachIcon from '@material-ui/icons/Help';
+import GraphIcon from '@material-ui/icons/Share';
+import BitManipulationIcon from '@material-ui/icons/Filter1';
+import DynamicProgrammingIcon from '@material-ui/icons/BlurLinear';
+import CombinatoricsIcon from '@material-ui/icons/DeviceHub';
 
-// Temporary
-import Projects from "../Projects.jsx";
+import ApproachIcon from '@material-ui/icons/Help';
+import Readme from './Readme.jsx';
+import Python from './Python.jsx';
+import Approach from './Approach.jsx';
 
 const styles = theme => ({
   root: {
@@ -33,23 +34,39 @@ const styles = theme => ({
   },
 });
 
+
 const PAGES = [
   { nested: false, link: "/math495/readme", icon: (<ReadmeIcon />), text: "Read Me" },
+  { nested: false, link: "/math495/python", icon: (<img src="../python-logo.png" style={{ width: "26px", height: "26px" }} alt="python icon" />), text: "Python in a Nutshell"},
   { nested: false, link: "/math495/approach", icon: (<ApproachIcon />), text: "Approaching a Problem" },
   { nested: false, link: "/math495/datastructures", icon: (<DatastructuresIcon />), text: "Data Structures" },
   { nested: true, icon: (<BruteforceIcon />), text: "Brute Force", children: [
     { nested: false, link: "/math495/bruteforce", icon: (<SendIcon />), text: "Signs You need" },
   ]},
   { nested: false, link: "/math495/greedy", icon: (<GreedyIcon />), text: "Greedy" },
+  { nested: false, link: "/math495/graph", icon: (<GraphIcon />), text: "Graph" },
+  { nested: false, link: "/math495/bit", icon: (<BitManipulationIcon />), text: "Bit Manipulation" },
+  { nested: false, link: "/math495/dp", icon: (<DynamicProgrammingIcon />), text: "Dynamic Programming" },
+  { nested: false, link: "/math495/combinatorics", icon: (<CombinatoricsIcon />), text: "Combinatorics" },
 ];
 
-/*
-Graph
-Bit manipulation
-Dynamic Programming
-Combinatorics
-Specialized
-*/
+const STYLE_CLASSES = {
+  article: {
+    paddingLeft: "100px",
+    maxWidth: "600px",
+    textAlign: "left",
+    lineHeight: "25px",
+  },
+};
+
+const ROUTES = (
+  <Switch>
+    <Route exact path="/math495/readme" render={(props) => <Readme {...props} style_classes={STYLE_CLASSES} />}/>
+    <Route exact path="/math495/python" render={(props) => <Python {...props} style_classes={STYLE_CLASSES} />}/>
+    <Route exact path="/math495/approach" render={(props) => <Approach {...props} style_classes={STYLE_CLASSES} />}/>
+  </Switch>
+)
+
 class Math495App extends Component {
   constructor (props) {
     super(props)
@@ -98,7 +115,7 @@ class Math495App extends Component {
 
     return (
       <div className="App">
-        <Grid container spacing={16} style={{ /*background: "#336633",*/ marginTop: "50px" }} alignItems = "center" justify="center">
+        <Grid container spacing={16} style={{ /*background: "#336633",*/ marginTop: "50px" }}>
           <Grid item xs={NAV_WIDTH} sm={NAV_WIDTH} style={{ background: "#FFFFFF", paddingLeft: "50px"}}>
             <Typography component="h1" variant="h4">competitive coding</Typography>
             <center>
@@ -112,9 +129,7 @@ class Math495App extends Component {
             </center>
           </Grid>
           <Grid item style={{/*background: "#BBBBBB"*/}} xs={12 - NAV_WIDTH} sm={12 - NAV_WIDTH}>
-            <Switch>
-              <Route exact path="/math495/readme" component={Projects} />
-            </Switch>
+            { ROUTES }
           </Grid>
         </Grid>
       </div>
