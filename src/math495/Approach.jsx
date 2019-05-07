@@ -47,25 +47,26 @@ class Approach extends Component {
     return (
       <div style={style_classes.article}>
 
-      <h1>Approach</h1>
-      <p>The steps required to understand a problem are the most <b>predictable</b> part of competitive coding.  A good understanding of the problem will help you avoid the following scenarios:</p>
+      <h1>Approaching a Problem</h1>
+      <p>The most <b>consistently useful</b> skill in competitive coding is understanding the problem statement.  A good understanding of the problem will help you avoid the following situations:</p>
       <ul>
         <li>You have no idea where to start.</li>
         <li>Your solution is a mess and you know it's because you jumped in too early.</li>
         <li>Your solution solves the problem...except for one pesky test case.</li>
       </ul>
-      <p>When you open up a problem, make sure to look at the following:</p>
+      <p>With practice and strategy you will be able to solve problems confidently.  Let's get started.</p>
 
       <h3>Input and Output</h3>
       <p>What exactly is the input to the problem, and what is the output?</p>
+      <p>Take a look at this sample <a target="_blank" href="https://www.hackerrank.com/challenges/two-pluses/problem">problem</a>:</p>
       <SimpleQuoteBox>
-        <p>Mary and Bob were walking down the street and then suddenly and then suddenly and then suddenly and then suddenly and then suddenly and then suddenly and then suddenly       </p>
+      <h3>Two Pluses</h3>
+      <p>Given a grid of size n by m, where each cell in the grid is either good or bad, a valid plus is defined here as the crossing of two segments (horizontal and vertical) of equal lengths. These lengths must be odd, and the middle cell of its horizontal segment must cross the middle cell of its vertical segment. Find the two largest valid pluses that can be drawn on good cells in the grid, and return an integer denoting the maximum product of their areas.</p> 
       </SimpleQuoteBox>
-      <p>You might be getting ready to do WRONG</p>
-      <SimpleQuoteBox>
-        <p>BUT THEN ...there was a wolf and he tried to eat and he tried to eat and he tried to eat and he tried to eat and he tried to eat and he tried to eat and he tried to eat and he tried to eat and he tried to eat and he tried to eat and he tried to eat</p>
-      </SimpleQuoteBox>
-      <p>Aha!  Now you know that you don't need to <i>generate</i> all the possibilities, you just need to know how many there are.</p>
+      <p>Do you see the ambiguity here?  It turns out that if you latched onto "two largest valid pluses", you would solve the wrong problem, because what's actually being asked for is the maximum product, which could be potentially be the result of two equal size pluses instead of one huge one and the resulting small one.</p>
+      <p>This particular problem is actually ambiguous — if you thought you had to find the two largest pluses, the second conditional on the position of the first, you would accidentally solve the wrong problem because this one pretty much has to be brute-forced.</p>
+
+      <p>Thankfully, the input is clear enough - a grid of G and B values which stand for "good" and "bad".  Inputs can be confusing too, so be sure to read carefully before beginning to solve.</p>
       <p>Knowing your input and output will give you clues about the solution and help you avoid the pain of giving the right answer to the wrong problem.</p>
 
       <h3>Constraints</h3>

@@ -107,7 +107,7 @@ class Math495App extends Component {
     this.setState(state => ({ open: new_open }))
   };
 
-  isExpanded = (i) => this.state.open.hasOwnProperty(i) ? this.state.open[i] : true
+  isExpanded = (i) => this.state.open.hasOwnProperty(i) ? this.state.open[i] : false
 
   render() {
     const { classes } = this.props;
