@@ -26,6 +26,7 @@ import ApproachIcon from '@material-ui/icons/Help';
 import Readme from './Readme.jsx';
 import Python from './Python.jsx';
 import Approach from './Approach.jsx';
+import DataStructures from './DataStructures.jsx';
 
 const styles = theme => ({
   root: {
@@ -64,6 +65,7 @@ const ROUTES = (
     <Route exact path="/math495/readme" render={(props) => <Readme {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/python" render={(props) => <Python {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/approach" render={(props) => <Approach {...props} style_classes={STYLE_CLASSES} />}/>
+    <Route exact path="/math495/datastructures" render={(props) => <DataStructures {...props} style_classes={STYLE_CLASSES} />}/>
   </Switch>
 )
 
@@ -114,7 +116,7 @@ class Math495App extends Component {
     const NAV_WIDTH = 3
 
     return (
-      <div className="App">
+      <div style={{textAlign: "center"}}>
         <Grid container spacing={16} style={{ /*background: "#336633",*/ marginTop: "50px" }}>
           <Grid item xs={NAV_WIDTH} sm={NAV_WIDTH} style={{ background: "#FFFFFF", paddingLeft: "50px"}}>
             <Typography component="h1" variant="h4">competitive coding</Typography>

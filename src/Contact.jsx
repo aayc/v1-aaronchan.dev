@@ -1,48 +1,96 @@
 import React, { Component } from 'react';
-import EmailIcon from '@material-ui/icons/Email';
-import CodeIcon from '@material-ui/icons/Code';
-import Textlink from '@material-ui/core/Link';
-import GetResume from '@material-ui/icons/GetApp';
+import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
+import Avatar from '@material-ui/core/Avatar';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ListItemText from '@material-ui/core/ListItemText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Dialog from '@material-ui/core/Dialog';
+import PersonIcon from '@material-ui/icons/Person';
+import AddIcon from '@material-ui/icons/Add';
+import Typography from '@material-ui/core/Typography';
+import blue from '@material-ui/core/colors/blue';
 
-  class Contact extends Component {
-    render () {
-      return (
-        <div>
-          <br /><br />
-          <br /><br />
-          <br /><br />
-          <center>
-          <table>
-            <tbody>
-            <tr>
-              <td style={{paddingRight: "30px" }}> <GetResume style = {{ width: 50, height: 50 }}/></td>
-              <td><Textlink href={"https://drive.google.com/uc?export=download&id=1ZwIDmLNkNWzzU1KEfYCJEzu1dWXQLoea"} target="_blank" variant="h3">download my resume</Textlink></td>
-            </tr>
-            <br />
-            <tr>
-              <td style={{paddingRight: "30px" }}> <EmailIcon style = {{ width: 50, height: 50 }}/></td>
-              <td><Textlink href={"mailto:aaron.y.chan64@gmail.com"} variant="h3">hire@aaronchan.dev</Textlink></td>
-            </tr>
-            <br />
-            <tr>
-              <td style={{paddingRight: "30px" }}> <CodeIcon style = {{ width: 50, height: 50 }}/></td>
-              <td><Textlink href={"https://github.com/aayc/"} target="_blank" variant="h3">aayc@github.com</Textlink></td>
-            </tr> 
-            <br />
-            <tr>
-              <td style={{paddingRight: "30px" }}> <img src="fb-icon-small.png" alt="facebook icon" style = {{ width: 40, height: 40, marginTop: "5px" }}/></td>
-              <td><Textlink href={"https://www.facebook.com/aaron.chan.92505"} target="_blank" variant="h3">aaron@facebook</Textlink></td>
-            </tr> 
-            <br />
-            <tr>
-              <td style={{paddingRight: "30px" }}> <img src="linkedin-icon.png" alt="linkedin icon" style = {{ width: 50, height: 50 }}/></td>
-              <td><Textlink href={"https://www.linkedin.com/in/aaron-chan-09366a6a"} target="_blank" variant="h3">aaron@linkedin</Textlink></td>
-            </tr> 
-            </tbody>
-          </table>
-          </center>
-        </div>
-      )
+const contact_info = [{
+  img: "logos/github-icon.svg",
+  title: "aayc@github.com",
+  link: "https://github.com/aayc"
+}, {
+  img: "logos/linkedin-icon.svg",
+  title: "aaron-y-chan@linkedin",
+  link: "https://www.linkedin.com/in/aaron-y-chan"
+}, {
+  img: "logos/fb-icon.svg",
+  title: "aaronchan@fb",
+  link: "https://www.facebook.com/aaron.chan.92505"
+}]
+
+class ContactDialogBox extends Component {
+
+  handleClose = () => {
+    const { onClose } = this.props;
+    onClose();
+  }
+
+  handleListItemClick = (link) => {
+    const { onClose } = this.props;
+    window.open(link, "_blank");
+    onClose();
+  }
+
+  render() {
+    const { onClose, ...other } = this.props;
+    return (
+      <Dialog onClose={this.handleClose} aria-labelledby="simple-dialog-title" {...other}>
+        <List>
+          {contact_info.map(info => (
+            <ListItem button onClick={() => this.handleListItemClick(info.link)} key={info.link}>
+              <ListItemAvatar>
+                <Avatar src={info.img} />
+              </ListItemAvatar>
+              <ListItemText primary={info.title} />
+            </ListItem>
+          ))}
+
+        </List>
+      </Dialog>
+    );
+  }
+}
+
+ContactDialogBox.propTypes = {
+  onClose: PropTypes.func,
+  open: PropTypes.bool,
+};
+
+class Contact extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      open: false,
+    }
+  }
+
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  }
+
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
+  render () {
+    const { selectedValue, open } = this.state;
+    return (
+      <span>
+        <Button variant="outlined" style={{ margin: 10, fontWeight: "bold"}} onClick={this.handleClickOpen}>
+          Contact
+        </Button>
+        <ContactDialogBox open={open} onClose={this.handleClose} />
+      </span>
+    );
   }
 }
 

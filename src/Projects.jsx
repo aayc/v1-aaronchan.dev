@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Textlink from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+import { Link } from 'react-router-dom';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
 
 const styles = {
   showcasePicture: {
@@ -11,15 +15,43 @@ const styles = {
   showcaseText: {
     width: "70%",
   },
+  buttonLink: {
+    textDecoration: "none",
+  }
 }
+
 
 class Projects extends Component {
   render() {
 
     return (
+      <Grid container spacing={0}>
+        <Grid item sm={12} xs={12} style={{marginTop: 20}}>
+          <center>
+          <Typography variant="h2">Projects</Typography>
+          <Typography variant="overline">By Aaron Chan</Typography>
+          
+          <Link to="/" style={styles.buttonLink}>
+            <Button variant="outlined" style={{ margin: 10, paddingRight: 25, paddingLeft: 25, fontWeight: "bold"}}>
+              Home
+            </Button>
+          </Link>
+          <Link to="/math495/readme" style={styles.buttonLink}>
+            <Button variant="outlined" style={{ margin: 10, fontWeight: "bold"}}>
+              Competitive Coding
+            </Button>
+          </Link>
+          <Link to="#" style={styles.buttonLink}>
+            <Button variant="outlined" style={{ margin: 10, fontWeight: "bold"}}>
+              Contact
+            </Button>
+          </Link>
+          </center>
+        </Grid>
+      {/*
       <div>
         <center>
-          <Typography variant="h2">side projects</Typography>
+          <Typography variant="h2">Projects</Typography>
           <p><i>some fail, some succeed, all are fun</i></p>
         </center>
         <ProjectTeaser
@@ -83,7 +115,8 @@ class Projects extends Component {
             </div>
           }
         />
-      </div>
+      </div>*/}
+      </Grid>
     );
   }
 }
