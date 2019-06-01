@@ -6,12 +6,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
-import PersonIcon from '@material-ui/icons/Person';
-import AddIcon from '@material-ui/icons/Add';
-import Typography from '@material-ui/core/Typography';
-import blue from '@material-ui/core/colors/blue';
 
 const contact_info = [{
   img: "logos/github-icon.svg",
@@ -82,7 +77,7 @@ class Contact extends Component {
   };
 
   render () {
-    const { selectedValue, open } = this.state;
+    const { open } = this.state;
     return (
       <span>
         <Button variant="outlined" style={{ margin: 10, fontWeight: "bold"}} onClick={this.handleClickOpen}>

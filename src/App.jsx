@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Textlink from '@material-ui/core/Link';
 import Avatar from '@material-ui/core/Avatar';
 import { Link, Switch, Route, BrowserRouter }  from 'react-router-dom';
 import Math495Home from './math495/Math495Home.jsx';
@@ -39,7 +38,6 @@ class App extends Component {
 
 class DefaultContainer extends Component {
   render() {
-    const { classes } = this.props
     return (
         <div className="App">
           <Grid container spacing={0} style={{ /*background: "#336633",*/ }}>

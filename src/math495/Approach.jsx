@@ -58,7 +58,7 @@ class Approach extends Component {
 
       <h3>Input and Output</h3>
       <p>What exactly is the input to the problem, and what is the output?</p>
-      <p>Take a look at this sample <a target="_blank" href="https://www.hackerrank.com/challenges/two-pluses/problem">problem</a>:</p>
+      <p>Take a look at this sample <a target="_blank" rel="noreferrer noopener" href="https://www.hackerrank.com/challenges/two-pluses/problem">problem</a>:</p>
       <SimpleQuoteBox>
       <h3>Two Pluses</h3>
       <p>Given a grid of size n by m, where each cell in the grid is either good or bad, a valid plus is defined here as the crossing of two segments (horizontal and vertical) of equal lengths. These lengths must be odd, and the middle cell of its horizontal segment must cross the middle cell of its vertical segment. Find the two largest valid pluses that can be drawn on good cells in the grid, and return an integer denoting the maximum product of their areas.</p> 
@@ -105,7 +105,7 @@ class Approach extends Component {
       <h3>References</h3>
       <ul>
         <li>The Algorithm Design Manual, by Steven Skiena</li>
-        <li>Time complexity table @ <a target="_blank" href="https://www.hackerearth.com/practice/basic-programming/complexity-analysis/time-and-space-complexity/tutorial/">hackerearth</a></li>
+        <li>Time complexity table @ <a target="_blank" rel="noreferrer noopener" href="https://www.hackerearth.com/practice/basic-programming/complexity-analysis/time-and-space-complexity/tutorial/">hackerearth</a></li>
       </ul>
 
 
@@ -134,8 +134,6 @@ class SimpleQuoteBox extends Component {
 class SimpleTable extends Component {
   render () {
     const { classes, headers, data } = this.props;
-    const row_cells_range = new Array(headers.length)
-
     return (
       <Paper className={classes.root}>
         <Table className={classes.table}>
