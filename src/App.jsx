@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Landing from './Landing.jsx';
 import Textlink from '@material-ui/core/Link';
 import Avatar from '@material-ui/core/Avatar';
 import { Link, Switch, Route, BrowserRouter }  from 'react-router-dom';
@@ -49,7 +48,7 @@ class DefaultContainer extends Component {
                 <Avatar alt="Aaron Chan" src="me-close.jpg" style={{width: 300, height: 300 }}/>
                 <br />
                 <Typography component="h1" variant="h2">
-                  Hi, I'm Aaron Chan
+                  Hi, I'm Aaron Chan.
                 </Typography>
         {/* urbanite friend coder pianist chef engineer cellist clown */}
       {/*<Typography variant="overline" style={{ position: "absolute", top: "20%" }} >Hello</Typography>*/}
