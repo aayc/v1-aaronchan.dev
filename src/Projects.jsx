@@ -31,7 +31,7 @@ class Projects extends Component {
             <Grid item sm={2} xs={2}></Grid>
             <ImageTile image="wordmath-recording.gif" alt="Word Math Screenshot" title="Math with Words"
               description="Adding and subtracting word embeddings leads to some interesting insights on how concepts are related."
-              buttonText="Demo" link="#"/>
+              buttonText="Demo" link="/wordmath"/>
             <ImageTile image="politweet-screenshot.png" alt="Politweet" title="Politweet"
               description="A 79% accuracy attempt to classify tweets based on political ideology."
               buttonText="See our unofficial paper" link="https://github.com/aayc/politweet/blob/master/Politweet.pdf"/>
