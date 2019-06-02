@@ -4,6 +4,7 @@ import Avatar from '@material-ui/core/Avatar';
 import { Link, Switch, Route, BrowserRouter }  from 'react-router-dom';
 import Math495Home from './math495/Math495Home.jsx';
 import Projects from './Projects.jsx';
+import WordMath from './wordmath/Wordmath.jsx';
 import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
 import ContactButton from './Contact.jsx';
@@ -30,6 +31,7 @@ class App extends Component {
           {/* Make Math495 page use its own navbar */}
           <Route path="/math495" component={Math495Home} />
           <Route path="/projects" component={Projects} />
+          <Route path="/wordmath" component={WordMath} />
           <Route component={DefaultContainer} />
         </Switch>
       </BrowserRouter>
