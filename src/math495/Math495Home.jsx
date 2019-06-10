@@ -27,6 +27,7 @@ import Readme from './Readme.jsx';
 import Python from './Python.jsx';
 import Approach from './Approach.jsx';
 import DataStructures from './DataStructures.jsx';
+import BruteForce from './BruteForce.jsx';
 
 const styles = theme => ({
   root: {
@@ -41,9 +42,11 @@ const PAGES = [
   { nested: false, link: "/math495/python", icon: (<img src="../python-logo.png" style={{ width: "26px", height: "26px" }} alt="python icon" />), text: "Python in a Nutshell"},
   { nested: false, link: "/math495/approach", icon: (<ApproachIcon />), text: "Approaching a Problem" },
   { nested: false, link: "/math495/datastructures", icon: (<DatastructuresIcon />), text: "Data Structures" },
-  { nested: true, icon: (<BruteforceIcon />), text: "Brute Force", children: [
-    { nested: false, link: "/math495/bruteforce", icon: (<SendIcon />), text: "Signs You need" },
-  ]},
+  /*{ nested: true, icon: (<BruteforceIcon />), text: "Brute Force", children: [
+    { nested: false, link: "/math495/bruteforce", icon: (<SendIcon />), text: "Methods" },
+    { nested: false, link: "/math495/bruteforce-examples", icon: (<SendIcon />), text: "Examples" },
+  ]},*/
+  { nested: false, link: "/math495/bruteforce", icon: (<BruteforceIcon />), text: "Brute Force" },
   { nested: false, link: "/math495/greedy", icon: (<GreedyIcon />), text: "Greedy" },
   { nested: false, link: "/math495/graph", icon: (<GraphIcon />), text: "Graph" },
   { nested: false, link: "/math495/bit", icon: (<BitManipulationIcon />), text: "Bit Manipulation" },
@@ -66,6 +69,7 @@ const ROUTES = (
     <Route exact path="/math495/python" render={(props) => <Python {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/approach" render={(props) => <Approach {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/datastructures" render={(props) => <DataStructures {...props} style_classes={STYLE_CLASSES} />}/>
+    <Route exact path="/math495/bruteforce" render={(props) => <BruteForce {...props} style_classes={STYLE_CLASSES} />}/>
   </Switch>
 )
 
