@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Code from './PythonCodeBlock.jsx';
+import SimpleQuoteBox from './SimpleQuoteBox.jsx';
 
 class BruteForce extends Component {
   render () {
@@ -12,7 +13,18 @@ class BruteForce extends Component {
 
       <p>Brute force will always give you the right answer and is usually fast to implement.  The problem, of course, is that it is slow.  If the problem can be solved within the time constraints using brute force, do it.  It usually means generating all possible solutions and testing each one.  You can usually tell if the problem requires brute force if a) the constraints are really small, b) solutions and problem space are not well connected, or c) clever solutions would be extremely complex.</p>
 
-      <p>BRUTE FORCE a2 + b2 = c2 + d2</p>
+      <SimpleQuoteBox>
+      <h3>Square Equations</h3>
+      <p>How many distinct values of a,b,c,d solve a^2 + b^2 = c^2 + d^2 for a,b,c,d in range 1 to 1000?</p>
+      </SimpleQuoteBox>
+
+      <SimpleQuoteBox>
+      <h3>Sherlock and Anagrams</h3>
+      <p>Two strings are anagrams of each other if the letters of one string can be rearranged to form the other string. Given a string, find the number of pairs of substrings of the string that are anagrams of each other.</p>
+      <p>For example s = mom, the list of all anagrammatic pairs is [m, m], [mo, om] at positions [[0], [2]], [[0, 1], [1, 2]] respectively.</p>
+      </SimpleQuoteBox>
+
+
       <p>Magic squares</p>
 
       <h3>Using Recursion</h3>
@@ -34,9 +46,6 @@ class BruteForce extends Component {
   return grid # not the most efficient but it'll do`}
       </Code>
 
-      <h3>Memoization</h3>
-      <p>Sometimes your brute force solution can be made fast by saving results to calls in a dictionary, and retrieving them instead of recalculating.</p>
-      <p>EXAMPLE PROBLEM, NAIVE SOLUTION, BETTER SOLUTION, SMALL EXPLANATION</p>
       <p> sherlock and string subsets</p>
 
       </div>

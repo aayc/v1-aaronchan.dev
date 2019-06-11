@@ -6,6 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import SimpleQuoteBox from './SimpleQuoteBox.jsx';
 
 const styles = theme => ({
   root: {
@@ -110,23 +111,6 @@ class Approach extends Component {
 
 
       </div>
-    )
-  }
-}
-
-class SimpleQuoteBox extends Component {
-  render () {
-    const paperStyle = {
-      width: '100%',
-      overflowX: 'auto',
-    }
-
-    return (
-      <Paper style={paperStyle}>
-        <div style={{padding: "20px"}}>
-          {this.props.children}
-        </div>
-      </Paper>
     )
   }
 }
