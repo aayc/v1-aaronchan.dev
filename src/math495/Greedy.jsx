@@ -27,16 +27,17 @@ class Greedy extends Component {
       <p>The cases you have (i.e. the problems your greedy algorithm needs to overcome) are dealing with a) really long events, b) events that interrupt other events.  If your algorithm can pick, even locally, events that avoid both of those problems, then you're good to go.  What are the possible strategies?  We've thought about picking the earliest starting events, the shortest events...given our information, the only simple metric left are the earliest ending events.  It turns out that this strategy is optimal: pick the earliest ending events and you avoid (a) and you minimize the chances of (b).</p>
 
       <Code>
-{`# let n, s, e be defined as in the problem spec.
-events = zip(s, e) # keep the times together in tuples
-events = sorted(events, key = lambda t: t[1]) # sort by ending time
-n_events = 1 # start at first event 
-free = events[0][1] # first time free
-for i in range(1, n):
-  if events[i][0] >= free: # if we're free by the next event
-    free = events[i][1] # take this event
-    n_events += 1
-return n_events`}
+{`def solveScheduler (n, s, e):
+  # let n, s, e be defined as in the problem spec.
+  events = zip(s, e) # keep the times together in tuples
+  events = sorted(events, key = lambda t: t[1]) # sort by ending time
+  n_events = 1 # start at first event 
+  free = events[0][1] # first time free
+  for i in range(1, n):
+    if events[i][0] >= free: # if we're free by the next event
+      free = events[i][1] # take this event
+      n_events += 1
+  return n_events`}
       </Code>
 
       <p>So, if you're thinking that a greedy approach will work, then establish your cases and examine your strategies to see if they meet all your cases.  Often greedy approaches involve sorting your data, having a set search plan, and/or making some big assumptions.</p>
