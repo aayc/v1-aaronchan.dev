@@ -19,16 +19,11 @@ class BruteForce extends Component {
       </SimpleQuoteBox>
 
       <SimpleQuoteBox>
-      <h3>Sherlock and Anagrams</h3>
-      <p>Two strings are anagrams of each other if the letters of one string can be rearranged to form the other string. Given a string, find the number of pairs of substrings of the string that are anagrams of each other.</p>
-      <p>For example s = mom, the list of all anagrammatic pairs is [m, m], [mo, om] at positions [[0], [2]], [[0, 1], [1, 2]] respectively.</p>
+      <h3>Magic Squares</h3>
+      <p>Given a few numbers filled into a 3x3 grid, find the rest of the rest of the numbers that, when inserted into the grid, will cause the sums of the rows, sums of the columns, and sums of the diagonals to be the same value.</p>
       </SimpleQuoteBox>
 
-
       <p>Magic squares</p>
-
-      <h3>Using Recursion</h3>
-      <p>generate all permutations</p>
 
       <h3>Backtracking with Pruning</h3>
       <p>Sometimes you can make your brute force a lot more efficient by using the constraints of the problem.  Your algorithm builds the solution step by step until the current solution is no longer possible, then it reverses its most recent step and tries a different move.  Some puzzle-like problems, such as Sudoku, can be effectively solved this way.</p>
@@ -45,8 +40,6 @@ class BruteForce extends Component {
       grid[r][c] = "X" # "unset" the possibility; not necessary for this problem but it's a good practice
   return grid # not the most efficient but it'll do`}
       </Code>
-
-      <p> sherlock and string subsets</p>
 
       </div>
     )

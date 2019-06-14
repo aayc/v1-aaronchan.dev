@@ -66,24 +66,16 @@ deque.popleft() # returns 2`}
 
 
       <h3>Priority Queues/Heaps</h3>
-      <p>If there is some strategy to picking the <i>next</i> element to consider or explore, then embedding that strategy into a priority queue or heap can reduce O(n) retrieval time to O(log(n)) retrieval time.  Dijkstra's algorithm for shortest path, for example, without a priority queue is O(n^2), however with a priority queue it becomes O(nlog(n)).  Python has a wonderful package built-in package called heapq which lets you use a set of functions to treat a list like a heap (search "list as heap data structure" to learn more about how).  Python's heapq is implemented as a min heap, so heappop returns the minimum element (organizing by first value in the tuple if elements are tuples).</p>
+      <p>If there is some strategy to picking the <i>next</i> element to consider or explore, then embedding that strategy into a priority queue or heap can reduce O(n) retrieval time to O(log(n)) retrieval time.  Dijkstra's algorithm for shortest path, for example, without a priority queue is O(n^2), however with a priority queue it becomes O(nlog(n)).  A heap is a specific implementation of a priority queue, which is more of a general concept.  Python has a wonderful package built-in package called heapq which lets you use a set of functions to treat a list like a heap/priority queue. (search "list as heap data structure" to learn more about how).  Python's heapq is implemented as a min heap, so heappop returns the minimum element (organizing by first value in the tuple if elements are tuples).</p>
       <Code>
 {`from heapq import heapify, heappop, heappush
 ls = [1, 5, 22, 1]
-heapify(ls)
+heapify(ls) # ls is now [1, 1, 22, 5]
 heappop(ls) # returns 1 in O(log(n)) time
-heappush(7)`}
+heappush(ls, 7)
+print(ls) # [1, 5, 22, 7] `}
       </Code>
-      <p>As long as you continue to use the heap operations on the list, the list will behave as a heap.  Think about how you could use a heap to solve the following problem:</p>
-      <SimpleQuoteBox>
-      <h3>Problem name</h3>
-      <p>Some kind of problem that requires a heap</p>
-      </SimpleQuoteBox>
-      <p>EXPLANATION</p>
-      <Code>
-{`Code that solves the problem`}
-      </Code>
-
+      <p>As long as you continue to use the heap operations on the list, the list will behave as a heap.</p>
 
       </div>
     )
