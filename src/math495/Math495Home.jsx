@@ -29,6 +29,7 @@ import Approach from './Approach.jsx';
 import DataStructures from './DataStructures.jsx';
 import BruteForce from './BruteForce.jsx';
 import Greedy from './Greedy.jsx';
+import Bit from './Bit.jsx';
 import Graph from './Graph.jsx';
 
 const styles = theme => ({
@@ -74,6 +75,7 @@ const ROUTES = (
     <Route exact path="/math495/bruteforce" render={(props) => <BruteForce {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/greedy" render={(props) => <Greedy {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/graph" render={(props) => <Graph {...props} style_classes={STYLE_CLASSES} />}/>
+    <Route exact path="/math495/bit" render={(props) => <Bit {...props} style_classes={STYLE_CLASSES} />}/>
   </Switch>
 )
 
