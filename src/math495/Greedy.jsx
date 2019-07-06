@@ -43,6 +43,7 @@ class Greedy extends Component {
       <p>So, if you're thinking that a greedy approach will work, then establish your cases and examine your strategies to see if they meet all your cases.  Often greedy approaches involve sorting your data, having a set search plan, and/or making some big assumptions.</p>
 
     <p>The good news is, if your greedy algorithm works, it's almost always fast enough to solve the problem in time, even for large input constraints.</p>
+    </div>
     )
   }
 }

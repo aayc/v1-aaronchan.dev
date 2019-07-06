@@ -19,15 +19,17 @@ class Bit extends Component {
       <Code>
 {`s = "110001101"
 `}
+      </Code>
       
       <h3>Properties of AND/OR</h3>
 
       <h3>Properties of XOR</h3>
 
       <h3>THE POWER</h3>
-      <p>HAcker's delight</p>
+      <p>Hacker's delight</p>
+      </div>
     )
   }
 }
 
-e
+export default Bit;

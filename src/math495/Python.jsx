@@ -17,7 +17,7 @@ class Python extends Component {
 
       <p>Unfortunately, Python's main weaknesses are its speed and memory consumption.  Because it is interpreted, it is usually an order of magnitude behind C and half of one behind Java, and consumes significantly more memory.  One of the controversial topics regarding Python's performance is the Global Interpreter Lock (GIL), which prevents multiple threads from executing Python simultaneously.  The GIL is literally a mutex in the C implementation of Python.  However, several types of operations such as I/O, image processing and numpy occur outside of the GIL.  Python can also be multiprocess, but processes are significantly heavier than threads.  If you're wondering, people have tried to rewrite Python to be multithreaded but every attempt has resulted in slower single threaded performance overall.</p>
 
-      <p>SOMETHING ABOUT DUNDER, CONVENTION STYLE</p>
+      <p>Because of its dynamic typing, Python code can seem loosey-goosey.  How are things like private variables enforced, or reserved method names enforced?  It turns out that Python relies mostly on convention to hint intention to the programmer.  For example, some methods are prefixed and suffixed by underscores, such as "__init__", (the double underscores are often called "dunders"), and are often called "magic" or "special" methods, because they are used behind the scenes, internally.</p>
 
       <h3>Syntax Crash Course</h3>
       <h5>variables</h5>
