@@ -9,15 +9,29 @@ class Python extends Component {
       <div style={style_classes.article}>
       <h1>Python in a Nutshell</h1>
       <h4>buckle up</h4>
-      <p>Python was created by Guido van Rossum, and is a general purpose programming language used in (no particular order): <u>server-side programming</u> (Django, Flask), <u>data science</u> (anaconda, matplotlib, tensorflow/sklearn/pandas/..), <u>desktop software</u> (pyqt, kiwi), <u>games</u> (particularly for mod scripting) and more.</p>
-      <p>It is interpreted, strongly typed (things have types under the hood), dynamically typed (you don't explicitly declare types), garbage-collected, and object oriented (class support, everything is an object).</p>
+      <p>Python was created by Guido van Rossum, and is a general purpose programming language used in server-side programming, data science, desktop software, games and more.  It is interpreted, strongly typed, dynamically typed, garbage-collected, and object oriented.</p>
+
       <p>Python 3 is the only Python you need to know; Python 2 will no longer be maintained past 2020.</p>
       <h3>Strengths and Weaknesses of Python</h3>
-      <p>Python is very good for prototyping because it is built to resemble pseudocode and it has a vast set of libraries available for use, in addition to a nice package manager called pip that makes installing libraries easy.  It is fast enough for most applications, especially prototypes.  Because Python is interpreted, it can run cross-platform (Windows, Mac, Linux systems).  It's also free and <a target="_blank" rel="noreferrer noopener" href="https://github.com/python/cpython">open source</a>.</p>
+      <p>Programmers like Python because it is/has:</p>
+      <ul>
+        <li>Easy to read</li>
+        <li>Flexible syntax (the "len" function for determining length works on lists, sets, deques, strings, etc.)</li>
+        <li>Large set of high quality packages that are easy to install using pip</li>
+        <li>Quick for prototyping and scripting because it looks like pseudocode</li>
+        <li>Not tied to a specific operating system or platform</li>
+        <li>Free and <a target="_blank" rel="noreferrer noopener" href="https://github.com/python/cpython">open source</a></li>
+      </ul>
 
-      <p>Unfortunately, Python's main weaknesses are its speed and memory consumption.  Because it is interpreted, it is usually an order of magnitude behind C and half of one behind Java, and consumes significantly more memory.  One of the controversial topics regarding Python's performance is the Global Interpreter Lock (GIL), which prevents multiple threads from executing Python simultaneously.  The GIL is literally a mutex in the C implementation of Python.  However, several types of operations such as I/O, image processing and numpy occur outside of the GIL.  Python can also be multiprocess, but processes are significantly heavier than threads.  If you're wondering, people have tried to rewrite Python to be multithreaded but every attempt has resulted in slower single threaded performance overall.</p>
+      <p>That said, Python is not so good because it:</p>
+      <ul>
+        <li>Is considered 10x slower than C</li>
+        <li>Cannot truly multithread (but can multiprocess, which are like heavier threads)</li>
+        <li>Has code conventions can seem like magic (e.g., __init__ for classes) and must be memorized</li>
+        <li>Uses dynamic typing, which makes code harder to maintain in large codebases</li>
+      </ul>
 
-      <p>Because of its dynamic typing, Python code can seem loosey-goosey.  How are things like private variables enforced, or reserved method names enforced?  It turns out that Python relies mostly on convention to hint intention to the programmer.  For example, some methods are prefixed and suffixed by underscores, such as "__init__", (the double underscores are often called "dunders"), and are often called "magic" or "special" methods, because they are used behind the scenes, internally.</p>
+      <p>In this class, we will not be covering architecting software with Python (e.g., virtual environments, pip, class organization).  Instead, we'll focus on what Python supports natively, and how it can be used to solve problems.</p>
 
       <h3>Syntax Crash Course</h3>
       <h5>variables</h5>
@@ -42,7 +56,7 @@ my_list[1::2] # previous but skips every other: [5, False]
 my_list[::-1] # reverses list, [False, "hi", 5, 3]
 my_list[:] # copies every item: [3, 5, "hi", False] `}
       </Code>
-      <p>Characters of strings can be accessed just like elements of lists are accessed, but strings are immutable in Python (cannot be changed, you have to make a new string instead).  If you need to change characters, you can call list() on a string to turn it into a list, then modify it.</p>
+      <p>String characters can be accessed just like list elements are accessed, but strings are immutable in Python (cannot be changed, you have to make a new string instead).  If you need to change characters, you can call list() on a string to turn it into a list, then modify it.</p>
       <p>There is a special type of list called a "tuple", which has the immutability of a string (there are perks to this, like being hashable) but allows for different types of items.  Tuple elements can be accessed just like list elements, but are created like this instead:</p>
       <Code>
 {`a = (3, )
@@ -110,24 +124,27 @@ print([int(x) for x in s.split(" ")]) # [3, 4, 7, 8]`}
 [x*3 for x in [3, 90, 2]] # [9, 270, 6]`}
       </Code>
       <p>You can read it in order in English e.g.: "the list consisting of x in the range 1 to 200 by 2 if x is not divisible by 5."</p>
+
+      <h3>Quiz Yourself</h3>
+      <p>What are the key differences between lists and tuples in Python?</p>
+      <p>Can you assign a variable "a" to a number, and then the next line assign it to a string?  Why or why not?</p>
+      <p>Can Python functions return multiple values?</p>
+      <p>What is the syntax for setting a default value in a Python function?</p>
+      <p>What's the difference between () and (,) in Python?</p>
+      
+      <h3>Extra things you can look up</h3>
+      <p>These are nice "syntactic sugar" that Python 3 supports that can come in handy.  They won't be necessary for this class though.</p>
+      <ul>
+        <li>for..else loop</li>
+        <li>unpacking assignments</li>
+        <li>with statements</li>
+        <li>import aliasing</li>
+        <li>generators</li>
+        <li>decorators</li>
+        <li>lambda expressions</li>
+      </ul>
       
       
-  {/*<h3>Intermediate: Generators</h3>
-
-      <h3>Intermediate: Lambda expressions</h3>
-      <p>Python supports anonymous functions which can be written as lambda expressions.  These are particularly useful when used with <u>higher order functions</u>, or functions that take other functions as input.  Three well-known examples are <tt>map</tt>, <tt>filter</tt> and <tt>reduce</tt>.</p>
-      <p><tt>map</tt> takes a function and a list, applies the function to every element in the list, then returns the resulting list.</p>
-
-      <p>Code block</p>
-
-      <p><tt>filter</tt> takes a function and a list, applies the function to each element in the list and discards the element if the function returns False, otherwise keeps it.</p>
-
-      <p>code block</p>
-
-      <p><tt>reduce</tt> takes a function and a list, and 
-
-      <p>Clean and necessary uses of lambda expressions are semi-rare because list comprehensions do the same thing (except for <tt>reduce</tt>.</p>
-      <h3>Advanced: Decorators</h3>*/}
       </div>
     )
   }
