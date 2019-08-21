@@ -8,7 +8,6 @@ class Python extends Component {
     return (
       <div style={style_classes.article}>
       <h1>Python in a Nutshell</h1>
-      <h4>buckle up</h4>
       <p>Python was created by Guido van Rossum, and is a general purpose programming language used in server-side programming, data science, desktop software, games and more.  It is interpreted, strongly typed, dynamically typed, garbage-collected, and object oriented.</p>
 
       <p>Python 3 is the only Python you need to know; Python 2 will no longer be maintained past 2020.</p>

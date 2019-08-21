@@ -9,14 +9,14 @@ class DataStructures extends Component {
       <div style={style_classes.article}>
       <h1>Data Structures</h1>
 
-      <p>Data structures are formats to organize and store data, and they can result in some big speedups if you know how you need to retrieve data, or storing data in a certain way will make solving the problem easy.  Let's go over some of the built-in data structures in Python that are useful and common:</p>
+      <p>Data structures are formats to organize and store data, and they can result in big speedups when used correctly.  Let's go over some of the built-in data structures in Python that are commonly useful:</p>
 
       <h3>Lists</h3>
       <p>Lists are the most frequently used data structure in Python.  They have essentially O(1) time for appending to the right and O(1) for access.  One of the tricky parts of using lists is indexing into them, which is shown below:</p>
       <Code>
 {`l = [2, 4, 7, 8]
 l.append(9)
-l[1:3] # returns list [4, 7]; elements at indices 1, 2
+l[1:3] # returns [4, 7]; elements at indices 1, 2
 l[2:] # returns [7, 8, 9]; elements at index 2 and onward
 l[:3] # returns [2, 4, 7]; elements from beginning to index 3
 l[:] # returns a copy of the list
@@ -25,8 +25,17 @@ l[::-1] # returns a reversed copy of the list.`}
       </Code>
       <p>Keep in mind that inserting anywhere other than the right, as well as removing, is O(n) for lists.</p>
 
+      <h3>Deques</h3>
+      <p>If you have a list but need to append left or pop left a lot, use a deque.  Both insertion/popping left and right are O(1) with deques. In Python, deques are implemented as doubly linked lists under the hood.</p>
+      <Code>
+{`from collections import deque
+deque.append(3)
+deque.appendleft(2)
+deque.popleft() # returns 2`}
+      </Code>
+
       <h3>Sets</h3>
-      <p>Sets are useful because insertion/check if exists/delete are all O(1) with a Hash Set (the default set in Python).  They also will only have one of each item.  For example, this is how you can quickly remove duplicates of a list:</p>
+      <p>Sets are useful because insertion, check if exists, and delete are all O(1) with a Hash Set (the default set in Python).  They also will only have one of each item.  For example, this is how you can quickly remove duplicates of a list:</p>
       <Code>
 {`list_with_dups = [3, 3, 5, 5, 6, 10, -3]
 my_set = set(list_with_dups)
@@ -55,14 +64,6 @@ min(mydict_fromlist, key=mydict_fromlist.get) # trick to get key of minimum valu
       <h3>Search Trees (Binary, Red/Black)</h3>
       <p>Search trees are for storing ordered data, with O(log(n)) insert and removal complexities.  It's less likely that you'll find yourself using a search tree over other types of data structure listed in this article since Python lists/dictionaries are heavily optimized and will suffice for most problems you encounter.  Honestly, they're kind of a pain to implement on the fly, and Python doesn't have a built-in package for search trees.</p>
 
-      <h3>Deques</h3>
-      <p>If you find that you need to append to the left or pop from left a lot, use a deque.  Both of popping left and right, as well as insertion left and right, are O(1) with deques. In Python, deques are implemented as doubly linked lists.</p>
-      <Code>
-{`from collections import deque
-deque.append(3)
-deque.appendleft(2)
-deque.popleft() # returns 2`}
-      </Code>
 
 
       <h3>Priority Queues/Heaps</h3>
