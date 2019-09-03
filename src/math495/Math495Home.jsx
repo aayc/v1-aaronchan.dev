@@ -15,15 +15,19 @@ import { withStyles } from '@material-ui/core/styles';
 import { Switch, Route }  from 'react-router-dom';
 import DatastructuresIcon from '@material-ui/icons/Dashboard';
 import ReadmeIcon from '@material-ui/icons/ChromeReaderMode';
+import ClassIcon from '@material-ui/icons/Class';
+import SolutionIcon from '@material-ui/icons/BubbleChart';
 import BruteforceIcon from '@material-ui/icons/Apps';
 import GreedyIcon from '@material-ui/icons/AttachMoney';
 import GraphIcon from '@material-ui/icons/Share';
 import BitManipulationIcon from '@material-ui/icons/Filter1';
 import DynamicProgrammingIcon from '@material-ui/icons/BlurLinear';
 import CombinatoricsIcon from '@material-ui/icons/DeviceHub';
-
 import ApproachIcon from '@material-ui/icons/Help';
+
 import Readme from './Readme.jsx';
+import Course from './Course.jsx';
+import Pset1 from './Pset1.jsx'
 import Python from './Python.jsx';
 import Approach from './Approach.jsx';
 import DataStructures from './DataStructures.jsx';
@@ -42,13 +46,13 @@ const styles = theme => ({
 
 const PAGES = [
   { nested: false, link: "/math495/readme", icon: (<ReadmeIcon />), text: "Read Me" },
+  { nested: false, link: "/math495/course", icon: (<ClassIcon />), text: "Course Materials" },
+  { nested: true, icon: (<SolutionIcon />), text: "Pset Solutions", children: [
+    {nested: false, link: "/math495/pset1", icon: (<SolutionIcon />), text: "1: Python Practice" }
+  ] },
   { nested: false, link: "/math495/python", icon: (<img src="../python-logo.png" style={{ width: "26px", height: "26px" }} alt="python icon" />), text: "Python in a Nutshell"},
   { nested: false, link: "/math495/approach", icon: (<ApproachIcon />), text: "Approaching a Problem" },
   { nested: false, link: "/math495/datastructures", icon: (<DatastructuresIcon />), text: "Data Structures" },
-  /*{ nested: true, icon: (<BruteforceIcon />), text: "Brute Force", children: [
-    { nested: false, link: "/math495/bruteforce", icon: (<SendIcon />), text: "Methods" },
-    { nested: false, link: "/math495/bruteforce-examples", icon: (<SendIcon />), text: "Examples" },
-  ]},*/
   { nested: false, link: "/math495/bruteforce", icon: (<BruteforceIcon />), text: "Brute Force" },
   { nested: false, link: "/math495/greedy", icon: (<GreedyIcon />), text: "Greedy" },
   { nested: false, link: "/math495/graph", icon: (<GraphIcon />), text: "Graph" },
@@ -69,6 +73,8 @@ const STYLE_CLASSES = {
 const ROUTES = (
   <Switch>
     <Route exact path="/math495/readme" render={(props) => <Readme {...props} style_classes={STYLE_CLASSES} />}/>
+    <Route exact path="/math495/course" render={(props => <Course {...props} style_classes={STYLE_CLASSES} />)}/>
+    <Route exact path="/math495/pset1" render={(props => <Pset1 {...props} style_classes={STYLE_CLASSES} />)}/>
     <Route exact path="/math495/python" render={(props) => <Python {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/approach" render={(props) => <Approach {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/datastructures" render={(props) => <DataStructures {...props} style_classes={STYLE_CLASSES} />}/>
