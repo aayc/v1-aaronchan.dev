@@ -58,7 +58,6 @@ const PAGES = [
   { nested: false, link: "/math495/graph", icon: (<GraphIcon />), text: "Graph" },
   { nested: false, link: "/math495/bit", icon: (<BitManipulationIcon />), text: "Bit Manipulation" },
   { nested: false, link: "/math495/dp", icon: (<DynamicProgrammingIcon />), text: "Dynamic Programming" },
-  { nested: false, link: "/math495/combinatorics", icon: (<CombinatoricsIcon />), text: "Combinatorics" },
 ];
 
 const STYLE_CLASSES = {
