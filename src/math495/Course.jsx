@@ -11,10 +11,14 @@ class Course extends Component {
         <a href="https://docs.google.com/presentation/d/1dnLAHWUWIjsXN5lN6KxpmIMUnLMjYevEPayIyigEo9w/edit?usp=sharing" target="_blank">Day 1: Syllabus and Slides</a>
         <br/>
         <a href="https://docs.google.com/presentation/d/1_wDI0PU3jm5vl5DDPKYlCY7kqkERC0uU1mO3H7_IJx4/edit?usp=sharing" target="_blank">Day 2: Common Data Structures</a>
+        <br/>
+        <a href="https://docs.google.com/presentation/d/1Shoeu39jQSdRw8boOOWbofw74VcqXPPvnzMZbsePj7M/edit?usp=sharing" target="_blank">Day 3: Review of Data Structures + Heap + Trie</a>
       <h3>Problem Sets</h3>
         <a href="http://www.hackerrank.com/python-practice-1566475321" target="_blank">Problem Set 1: Python Practice</a>
         <br />
         <a href="http://www.hackerrank.com/math-495r-09-data-structures" target="_blank">Problem Set 2: Data Structures</a>
+        <br />
+        <a href="http://www.hackerrank.com/math-495r-09-strings" target="_blank">Problem Set 3: Strings</a>
       </div>
     )
   }
