@@ -22,7 +22,6 @@ import GreedyIcon from '@material-ui/icons/AttachMoney';
 import GraphIcon from '@material-ui/icons/Share';
 import BitManipulationIcon from '@material-ui/icons/Filter1';
 import DynamicProgrammingIcon from '@material-ui/icons/BlurLinear';
-import CombinatoricsIcon from '@material-ui/icons/DeviceHub';
 import ApproachIcon from '@material-ui/icons/Help';
 
 import Readme from './Readme.jsx';
