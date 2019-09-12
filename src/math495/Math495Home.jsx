@@ -28,6 +28,7 @@ import ApproachIcon from '@material-ui/icons/Help';
 import Readme from './Readme.jsx';
 import Course from './Course.jsx';
 import Pset1 from './Pset1.jsx'
+import Blitz1 from './Blitz1.jsx'
 import Python from './Python.jsx';
 import Approach from './Approach.jsx';
 import DataStructures from './DataStructures.jsx';
@@ -48,7 +49,8 @@ const PAGES = [
   { nested: false, link: "/math495/readme", icon: (<ReadmeIcon />), text: "Read Me" },
   { nested: false, link: "/math495/course", icon: (<ClassIcon />), text: "Course Materials" },
   { nested: true, icon: (<SolutionIcon />), text: "Pset Solutions", children: [
-    {nested: false, link: "/math495/pset1", icon: (<SolutionIcon />), text: "1: Python Practice" }
+    {nested: false, link: "/math495/pset1", icon: (<SolutionIcon />), text: "1: Python Practice" },
+    {nested: false, link: "/math495/blitz1", icon: (<SolutionIcon />), text: "Blitz 1" }
   ] },
   { nested: false, link: "/math495/python", icon: (<img src="../python-logo.png" style={{ width: "26px", height: "26px" }} alt="python icon" />), text: "Python in a Nutshell"},
   { nested: false, link: "/math495/approach", icon: (<ApproachIcon />), text: "Approaching a Problem" },
@@ -74,6 +76,7 @@ const ROUTES = (
     <Route exact path="/math495/readme" render={(props) => <Readme {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/course" render={(props => <Course {...props} style_classes={STYLE_CLASSES} />)}/>
     <Route exact path="/math495/pset1" render={(props => <Pset1 {...props} style_classes={STYLE_CLASSES} />)}/>
+    <Route exact path="/math495/blitz1" render={(props => <Blitz1 {...props} style_classes={STYLE_CLASSES} />)}/>
     <Route exact path="/math495/python" render={(props) => <Python {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/approach" render={(props) => <Approach {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/datastructures" render={(props) => <DataStructures {...props} style_classes={STYLE_CLASSES} />}/>
