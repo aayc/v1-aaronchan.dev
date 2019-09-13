@@ -85,18 +85,11 @@ print(total_money)`}
 </Code>
         <h3>Integers Come in All Sizes</h3>
 <Code>
-{`from collections import Counter
-
-n_shoes = int(input())
-shoes = Counter([int(x) for x in input().split(" ")])
-n = int(input())
-total_money = 0
-for i in range(n):
-    shoe, money = [int(x) for x in input().split(" ")]
-    if shoes[shoe] > 0:
-        shoes[shoe] -= 1
-        total_money += money
-print(total_money)`}
+{`a = int(input())
+b = int(input())
+c = int(input())
+d = int(input())
+print(str(a**b + c**d))`}
 </Code>
         <h3>Lists</h3>
 <Code>
