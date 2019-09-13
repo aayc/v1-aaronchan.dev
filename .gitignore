@@ -1,4 +1,5 @@
 .DS_STORE
+login.sh
 node_modules
 scripts/flow/*/.flowconfig
 *~
