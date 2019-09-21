@@ -14,7 +14,7 @@ class Course extends Component {
         <br/>
         <a href="https://docs.google.com/presentation/d/1Shoeu39jQSdRw8boOOWbofw74VcqXPPvnzMZbsePj7M/edit?usp=sharing" target="_blank">Day 3: Review of Data Structures + Heap + Trie</a>
         <br />
-        <a href="https://docs.google.com/presentation/d/1034NwGpbmRc4T0pLiGOFaxN9vzMrWwJp4H6jl_H4n_8/edit?usp=sharing" target="_blank">Day 4: Strings</a>
+        <a href="https://docs.google.com/presentation/d/1034NwGpbmRc4T0pLiGOFaxN9vzMrWwJp4H6jl_H4n_8/edit?usp=sharing" target="_blank">Day 5: Strings</a>
         <br />
         <a href="https://docs.google.com/presentation/d/1lCJBaz8Kw2RVqD-5WPsfOxyjcWc2xUopeds2S6NkRP4/edit?usp=sharing" target="_blank">Day 6: Interview Prep</a>
       <h3>Problem Sets</h3>
