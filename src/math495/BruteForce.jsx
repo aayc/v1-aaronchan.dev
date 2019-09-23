@@ -78,8 +78,24 @@ def alternate(s):
 
         <p>In this problem we need to literally try every possible combination of ascii characters and digits.  The easiest and simplest implementation is recursive: try one letter or digit, and recurse until length of our guess is 4, then call check_password on it.</p>
 
-        <p>What is our base case?  Our base case is the <b>simplest</b> call to the function.</p>
+        <Code>
+{`def password_crack(s):
+if len(s) == 4:
+    # This is our base case!  Using base cases is how you avoid infinite loops!
+    check_password(s)
+else:
+    for c in string.ascii_lowercase:
+        password_crack(s + c)
+    for d in string.digits:
+        password_crack(s + d)`}
+</Code>
 
+        <p>What is our base case?  Our base case how we END our recursive function; in this example, it's when we generate a password to test.  Notice that each call to password_crack explodes in complexity because it leads to 26 (letters) + 10 (digits) extra calls!  So our function is really slow, but for a simple four letter password, brute forcing is sufficient.</p>
+
+        <p>Also remember that strings are <b>immutable</b> which is why we can pass them through the function and modify them without worrying about stepping on our own toes by modifying something unexpectedly.</p>
+
+        <h2>Backtracking</h2>
+        <p>An advanced method of brute force is called backtracking.  Backtracking is where you need to try everything, but you have certain constraints that will ensure that your complexity doesn't explode out of control.  For example, let's look at the following problem.</p>
 
 
         <SimpleQuoteBox>
@@ -87,7 +103,7 @@ def alternate(s):
           <p>Timmy is tired of solving Sudoku puzzles by hand.  A Sudoku puzzle is a grid of squares (in this case, 9x9) where Timmy must fill out each square with a number 1-9 such that every row has the numbers 1-9, every column has the numbers 1-9, and each 3x3 square in the 9x9 board has the numbers 1-9.  He has a bunch of 9x9 sudoku puzzles with a few numbers filled out, each, and he wants to write a program that takes in this incomplete puzzle and outputs a completed one.</p>
         </SimpleQuoteBox>
 
-        <p>Coming up with an algorithm that intelligently puts down numbers is difficult, but brute-forcing the solution is not that bad.  The basic idea is: place a number 1-9 in the first unfilled spot and see if the board becomes invalid (i.e., doesn't meet the sudoku conditions); if it is valid, try the next unfilled spot.  If none of the numbers work, backtrack and try a different number in the previous spot.  This can be done fairly neatly using recursion, and this kind of algorithm is known as a <b>backtracking</b> algorithm.  These are very useful when you have constraints and you want to try every solution.</p>
+        <p>Coming up with an algorithm that intelligently decides the solution is difficult, so instead we will use brute force.  The basic idea is: place a number 1-9 in the first unfilled spot and see if the board becomes invalid (i.e., doesn't meet the sudoku conditions); if it is valid, try the next unfilled spot.  If none of the numbers work, backtrack and try a different number in the previous spot.  This can be done fairly neatly using recursion, and this kind of algorithm is known as a <b>backtracking</b> algorithm.  These are very useful when you have constraints and you want to try every solution.</p>
 
         <p>Note that backtracking seems terribly cost ineffective, but it turns out that because we "backtrack", we actually save ourselves a lot of time in comparison to randomly filling boards and testing them.  Also note that in brute force recursive solutions, there is <i>usually</i> an element of "setting, recursing, unsetting."  This is the mechanism by which we look at every possible solution.</p>
 
@@ -110,9 +126,9 @@ def alternate(s):
     return True
 
 def solve_sudoku(board, r, c):
-    #print(r, c)
     if r == len(board):
-        # If we've reached the end, there are no more solutions to find
+        # This is our base case!
+        # If we've reached the end, that means we have found a solution
         for p in board:
             print(*p)
         return 1
@@ -191,6 +207,8 @@ def sudoku_solver(board):
 5 6 8 2 3 9 7 4 1
 1`}
         </Code>
+
+        <p>Remember that backtracking can only be used if you have certain constraints that you can leverage to reduce the number of situations you need to consider.  Also remember that when implementing a backtracking algorithm, you need a base case and a set-recurse-unset pattern.</p>
        
       </div>
     )
