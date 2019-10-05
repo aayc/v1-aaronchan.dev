@@ -99,6 +99,41 @@ for i in range(T):
 </Code>
         <h3>Almost Sorted</h3>
 <Code>
+  {`def almostSorted(arr):
+    # Idea: find out-of-place element from left to right
+    # then find out-of-place element from right to left
+    # try a swap, if it works then great
+    # otherwise try a reverse on this subsegment, if it works then great
+    # otherwise impossible
+
+    # check to see if any elements can be swapped
+    e_i = next((i for i in range(1, len(arr)) if arr[i] < arr[i - 1]), None) - 1
+    if e_i is None:
+        # array is already sorted
+        print("yes")
+        return
+
+    e_j = next((i for i in range(len(arr) - 2, -1, -1) if arr[i] > arr[i + 1]), None) + 1
+
+    # try swapping them
+    arr[e_i], arr[e_j] = arr[e_j], arr[e_i]
+    if next((i for i in range(1, len(arr)) if arr[i] < arr[i - 1]), None) is None:
+        print("yes")
+        print(f"swap {e_i + 1} {e_j + 1}")
+        return
+    else:
+        # Swap back
+        arr[e_i], arr[e_j] = arr[e_j], arr[e_i]
+
+        # try reversing the subsegment
+        R = arr[:e_i] + arr[e_i:e_j + 1][::-1] + arr[e_j + 1:]
+        if next((i for i in range(1, len(R)) if R[i] < R[i - 1]), None) is None:
+            print("yes")
+            print(f"reverse {e_i + 1} {e_j + 1}")
+            return
+        else:
+            print("no")
+            return`}
 </Code>
         <h3>Ema's Supercomputer</h3>
         <p>This one is kind of a pain because it asks not for the largest and second largest pluses, but instead the maximum product of the pluses, which could be two smaller but more balanced pluses.  In addition, the pluses cannot overlap.  The solution is to iterate through the board and when a plus is found, blocking it out and re-running the function.  As pluses in pairs are found, keep track of the maximum product area.  Don't forget to check smaller versions of pluses at each spot in the grid.</p>
