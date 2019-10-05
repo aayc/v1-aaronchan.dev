@@ -8,9 +8,11 @@ class Graph extends Component {
 
     return (
       <div style={style_classes.article}>
-      <h1>Graph Approaches</h1>
+      <h1>Graph based Algorithms</h1>
 
-      <p>todo</p>
+        <p>Graphs are used to model relationships between things.  The "things" are called nodes/vertices and the relationships are called edges.  For example, you could model a set of buildings and their relationship by distance, so you would have a set of nodes that represent each building, and an edge from node A to node B would have some value, like, which would represent distance, like 5 miles.  Another example of a graph would be a social network, with nodes as people and edges as relationship type.</p>
+
+        <p>Representing, traversing, and making decisions based on graphs are essential knowledge tools.  </p>
 
 
       </div>
