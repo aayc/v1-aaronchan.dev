@@ -31,6 +31,7 @@ import Pset2 from './Pset2.jsx';
 import Blitz1 from './Blitz1.jsx';
 import Pset3 from './Pset3.jsx';
 import Pset4 from './Pset4.jsx';
+import Pset5 from './Pset5.jsx';
 import Python from './Python.jsx';
 import Approach from './Approach.jsx';
 import DataStructures from './DataStructures.jsx';
@@ -55,7 +56,8 @@ const PAGES = [
     {nested: false, link: "/math495/blitz1", icon: (<SolutionIcon />), text: "Blitz 1" },
     {nested: false, link: "/math495/pset2", icon: (<SolutionIcon />), text: "2: Data Structures" },
     {nested: false, link: "/math495/pset3", icon: (<SolutionIcon />), text: "3: Strings" },
-    {nested: false, link: "/math495/pset4", icon: (<SolutionIcon />), text: "4: Brute Force" }
+    {nested: false, link: "/math495/pset4", icon: (<SolutionIcon />), text: "4: Brute Force" },
+    {nested: false, link: "/math495/pset5", icon: (<SolutionIcon />), text: "5: Greedy" }
   ] },
   { nested: false, link: "/math495/python", icon: (<img src="../python-logo.png" style={{ width: "26px", height: "26px" }} alt="python icon" />), text: "Python in a Nutshell"},
   { nested: false, link: "/math495/approach", icon: (<ApproachIcon />), text: "Approaching a Problem" },
@@ -85,6 +87,7 @@ const ROUTES = (
     <Route exact path="/math495/pset2" render={(props => <Pset2 {...props} style_classes={STYLE_CLASSES} />)}/>
     <Route exact path="/math495/pset3" render={(props => <Pset3 {...props} style_classes={STYLE_CLASSES} />)}/>
     <Route exact path="/math495/pset4" render={(props => <Pset4 {...props} style_classes={STYLE_CLASSES} />)}/>
+    <Route exact path="/math495/pset5" render={(props => <Pset5 {...props} style_classes={STYLE_CLASSES} />)}/>
     <Route exact path="/math495/python" render={(props) => <Python {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/approach" render={(props) => <Approach {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/datastructures" render={(props) => <DataStructures {...props} style_classes={STYLE_CLASSES} />}/>
