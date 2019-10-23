@@ -65,7 +65,7 @@ class Graph extends Component {
 `}
         </Code>
 
-        <h2>Graph Algorithms - Flood Fill and Dijkstra's Algorithm</h2>
+        <h2>Flood Fill and Dijkstra's Algorithm</h2>
         <p>There are many algorithms that are used to extract information out of graphs.  We won't have the time to cover all of them, but two useful ones to know that are easy to get started with are Flood Fill and Dijkstra's Algorithm.  Let's take a look at some example problems:</p>
 
         <SimpleQuoteBox>
@@ -125,20 +125,54 @@ print(forest_regions)
 
         <p>A familiar and intuitive graph operation is finding the shortest path between two nodes.  BFS will do this for us if all of the edges in the graph are weighted the same, but what if they have different weights?  Check out the following graph:</p>
 
+        <img src="dijkstra1.png" width="600" height="300"/>
+
         <p>Notice how in this graph, the shortest path by distance is actually to traverse nodes 1, 2, 3, and finally 4.  Dijkstra's algorithm computes shortest path in O(something) time, and is fairly straightforward to implement.  Imagine that we had the picture above as input:</p>
 
         <Code>
-      {`4 # 4 nodes
-0 1 1 # node 0 to node 1 with distance 1
-0 2 4
-1 2 2
-1 3 5
-2 3 1`}</Code>
+      {`5 # 5 nodes
+A B 6 # node A to node B with distance 1
+A D 1
+B C 5
+B E 2
+D B 2
+D E 1
+E C 5`}</Code>
 
-        <p>In Dijkstra's algorithm, we keep track of a list of distances from each node to the start node, initializing them all at infinity.  Then we continually take the minimum distance edge that does <i>better</i> than the distance we already knew.  So for example, we start at node 0.  The distances to all other nodes is infinity.  We see that from node 0 we can either move to node 1 or 2 with distance 1 or 4, respectively, so we choose node 1.  The edges that are now available to us are from node 0 to node 2 (like before), node 1 to node 2, and node 1 to node 3.  Of these, node 1 to node 2 gives us the best distance to node 2 from node 0, which is 1 + 2 = 3.  Now we have all the remaining edges to look at...</p>
+        <p>In Dijkstra's algorithm, we keep track of a list of distances from each node to the start node, initializing them all at infinity.  At first, we only know about the edges going out of the starting node.  We take the minimum distance edge from the start node to another node.  Now we take into account those additional edges from the node we visited.  Then we continually take the minimum distance edge that does <i>better</i> than the distance we already knew.  If at any point we reach the ending node, we know it's the shortest path to get there.</p>
 
-        <p>The code looks like this:</p>
+        <p>The best way to implement Dijkstra's algorithm is with a <i>priority queue</i>, which is most straightforwardly a minimum heap in Python.  The code looks like this:</p>
+        <Code>
+{`from heapq import heappush, heappop
+oo = float("inf")
+# M is the adjacency matrix where M[node1][node2] is the distance between node 1 and node 2
+# N is the number of nodes we have
+def dijkstra(start_node, end_node):
+  D = [oo for i in range(N)]
+  D[start_node] = 0
 
+  q = [(0, start_node)]
+  while q:
+    d, node = heappop(q)
+    print("I'm visiting", node)
+
+    if node == end_node:
+      return d
+
+    for i in range(len(M[node])):
+      if M[node][i] != -1 and M[node][i] != 0 and M[node][i] + d < D[i]:
+        D[i] = M[node][i] + d
+        heappush(q, (M[node][i] + d, i))
+  return -1`}
+</Code>
+      <p>For the example graph, our adjacency matrix might look something like:</p>
+        <Code>
+{`[[ 0,  6, -1,  1, -1], # A-B is 6, A-D is 1
+ [-1,  0,  5, -1,  2],
+ [-1,  2,  0, -1,  1],
+ [-1, -1, -1,  0, -1],
+ [-1, -1,  5, -1,  0]]`}</Code>
+        <p>Running Dijkstra's algorithm from Node A (0) to Node B (1) would return 3 (even though there's a direct path, because that path is length 6)</p>
 
       </div>
     
