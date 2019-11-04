@@ -41,6 +41,7 @@ import BruteForce from './BruteForce.jsx';
 import Greedy from './Greedy.jsx';
 import Bit from './Bit.jsx';
 import Graph from './Graph.jsx';
+import Dp from './Dp.jsx';
 
 const styles = theme => ({
   root: {
@@ -101,6 +102,7 @@ const ROUTES = (
     <Route exact path="/math495/greedy" render={(props) => <Greedy {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/graph" render={(props) => <Graph {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/bit" render={(props) => <Bit {...props} style_classes={STYLE_CLASSES} />}/>
+    <Route exact path="/math495/dp" render={(props) => <Dp {...props} style_classes={STYLE_CLASSES} />}/>
   </Switch>
 )
 
