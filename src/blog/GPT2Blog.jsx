@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   root: {
@@ -26,7 +27,7 @@ class GPT2Blog extends Component {
             <h1></h1>
           </Grid>
           <Grid item xs={8} sm={8}>
-            <h1>In the middle with the whole thing lots of text how does it fill up</h1>
+            <Typography variant="h2">In the middle with the whole thing lots of text how does it fill up</Typography>
           </Grid>
           <Grid item xs={2} sm={2} style={{ background: "#FFFFFF" }}>
           </Grid>
