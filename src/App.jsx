@@ -5,6 +5,7 @@ import { Link, Switch, Route, BrowserRouter }  from 'react-router-dom';
 import Math495Home from './math495/Math495Home.jsx';
 import Projects from './Projects.jsx';
 import WordMath from './wordmath/Wordmath.jsx';
+import GPT2Blog from './blog/GPT2Blog.jsx';
 import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
 import ContactButton from './Contact.jsx';
@@ -32,6 +33,7 @@ class App extends Component {
           <Route path="/math495" component={Math495Home} />
           <Route path="/projects" component={Projects} />
           <Route path="/wordmath" component={WordMath} />
+          <Route path="/gpt2blog" component={GPT2Blog}/>
           <Route component={DefaultContainer} />
         </Switch>
       </BrowserRouter>
@@ -68,6 +70,11 @@ class DefaultContainer extends Component {
                 <Link to="/math495/readme" style={cssStyles.buttonLink}>
                   <Button variant="outlined" style={{ margin: 10, fontWeight: "bold"}}>
                     Competitive Coding
+                  </Button>
+                </Link>
+                <Link to="/gpt2blog" style={cssStyles.buttonLink}>
+                  <Button variant="outlined" style={{ margin: 10, fontWeight: "bold"}}>
+                    GPT2 Blog
                   </Button>
                 </Link>
                 <ContactButton />
