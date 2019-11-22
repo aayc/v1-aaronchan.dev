@@ -7,7 +7,7 @@ class Pset7 extends Component {
 
     return (
       <div style={style_classes.article}>
-      <h1>Problem Set 6 Solutions</h1>
+      <h1>Problem Set 7 Solutions</h1>
 
         <h3>Breadth first search: Shortest Reach</h3>
         <p>Don't forget to map the edges BOTH ways since the graph is undirected!</p>
