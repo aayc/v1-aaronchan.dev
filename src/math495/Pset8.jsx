@@ -58,7 +58,6 @@ class Pset8 extends Component {
     return ix * max_val + stockmax(prices[ix + 1:]) - sum(prices[0:ix])`}
 </Code>
 
-        <h3>Lego Blocks</h3>
         <h3>Knapsack</h3>
         <Code>
 {`def unboundedKnapsack(k, arr):
