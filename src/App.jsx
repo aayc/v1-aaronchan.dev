@@ -5,7 +5,6 @@ import { Link, Switch, Route, BrowserRouter }  from 'react-router-dom';
 import Math495Home from './math495/Math495Home.jsx';
 import Projects from './Projects.jsx';
 import WordMath from './wordmath/Wordmath.jsx';
-import GPT2Blog from './blog/GPT2Blog.jsx';
 import Fade from '@material-ui/core/Fade';
 import Button from '@material-ui/core/Button';
 import ContactButton from './Contact.jsx';
@@ -14,8 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import './App.css';
 
-const styles = theme => ({
-})
+const styles = theme => ({})
 
 const cssStyles = {
   buttonLink: {
@@ -33,7 +31,6 @@ class App extends Component {
           <Route path="/math495" component={Math495Home} />
           <Route path="/projects" component={Projects} />
           <Route path="/wordmath" component={WordMath} />
-          <Route path="/gpt2blog" component={GPT2Blog}/>
           <Route component={DefaultContainer} />
         </Switch>
       </BrowserRouter>
@@ -45,7 +42,7 @@ class DefaultContainer extends Component {
   render() {
 
     return (
-        <div className="App">
+        <div className="App" style={{overflowX: "hidden"}}>
           <Grid container spacing={0} style={{ /*background: "#336633",*/ }}>
             <Grid item xs={12} sm={12} style={{ marginTop: "8%" }}> 
               <center>
@@ -59,7 +56,6 @@ class DefaultContainer extends Component {
                   <FloatText len={3000} mTop="260px" mLeft="-190px" text="friend" />
                 </div> <br /><br />
                 <Typography component="h1" variant="h2">
-                  Hi, I'm Aaron Chan.
                 </Typography>
                 <br /> <br />
                 <Link to="/projects" style={cssStyles.buttonLink}>
@@ -70,11 +66,6 @@ class DefaultContainer extends Component {
                 <Link to="/math495/readme" style={cssStyles.buttonLink}>
                   <Button variant="outlined" style={{ margin: 10, fontWeight: "bold"}}>
                     Competitive Coding
-                  </Button>
-                </Link>
-                <Link to="/gpt2blog" style={cssStyles.buttonLink}>
-                  <Button variant="outlined" style={{ margin: 10, fontWeight: "bold"}}>
-                    GPT2 Blog
                   </Button>
                 </Link>
                 <ContactButton />
