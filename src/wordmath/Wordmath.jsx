@@ -34,7 +34,6 @@ class Wordmath extends Component {
 
     this.state = {
       equation: "",
-      
       wikipedia: [],
       twitter: [],
       google_news: [],
@@ -47,12 +46,15 @@ class Wordmath extends Component {
     fetch("/compute?eq=" + encodeURIComponent(eq_string))
       .then(res => res.json())
       .then(results => {
-        console.log("RESULTS: " + JSON.stringify(results))
-        this.setState({ 
-          wikipedia: results["wikipedia"].split(" "),
-          google_news: results["google_news"].split(" "),
-          twitter: results["twitter"].split(" ")
-        })
+        if ("error" in results) {
+          alert(results.error)
+        } else {
+          this.setState({ 
+            wikipedia: results["wikipedia"],
+            google_news: results["google_news"],
+            twitter: results["twitter"]
+          })
+        }
       })
   }
 
@@ -71,7 +73,6 @@ class Wordmath extends Component {
 
   render() {
     const { equation, google_news, twitter, wikipedia } = this.state
-    console.log(JSON.stringify(wm_styles.table))
 
     return (
       <div className="App">
