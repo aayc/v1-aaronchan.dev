@@ -35,6 +35,7 @@ import Pset5 from './Pset5.jsx';
 import Pset6 from './Pset6.jsx';
 import Pset7 from './Pset7.jsx';
 import Pset8 from './Pset8.jsx';
+import Pset9 from './Pset9.jsx';
 import Python from './Python.jsx';
 import Approach from './Approach.jsx';
 import DataStructures from './DataStructures.jsx';
@@ -64,7 +65,8 @@ const PAGES = [
     {nested: false, link: "/math495/pset5", icon: (<SolutionIcon />), text: "5: Greedy" },
     {nested: false, link: "/math495/pset6", icon: (<SolutionIcon />), text: "6: Recursion" },
     {nested: false, link: "/math495/pset7", icon: (<SolutionIcon />), text: "7: Graph" },
-    {nested: false, link: "/math495/pset8", icon: (<SolutionIcon />), text: "8: Dynamic Programming" }
+    {nested: false, link: "/math495/pset8", icon: (<SolutionIcon />), text: "8: Dynamic Programming" },
+    {nested: false, link: "/math495/pset9", icon: (<SolutionIcon />), text: "9: Mixed 1" }
   ] },
   { nested: false, link: "/math495/python", icon: (<img src="../python-logo.png" style={{ width: "26px", height: "26px" }} alt="python icon" />), text: "Python in a Nutshell"},
   { nested: false, link: "/math495/approach", icon: (<ApproachIcon />), text: "Approaching a Problem" },
@@ -98,6 +100,7 @@ const ROUTES = (
     <Route exact path="/math495/pset6" render={(props => <Pset6 {...props} style_classes={STYLE_CLASSES} />)}/>
     <Route exact path="/math495/pset7" render={(props => <Pset7 {...props} style_classes={STYLE_CLASSES} />)}/>
     <Route exact path="/math495/pset8" render={(props => <Pset8 {...props} style_classes={STYLE_CLASSES} />)}/>
+    <Route exact path="/math495/pset9" render={(props => <Pset9 {...props} style_classes={STYLE_CLASSES} />)}/>
     <Route exact path="/math495/python" render={(props) => <Python {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/approach" render={(props) => <Approach {...props} style_classes={STYLE_CLASSES} />}/>
     <Route exact path="/math495/datastructures" render={(props) => <DataStructures {...props} style_classes={STYLE_CLASSES} />}/>
